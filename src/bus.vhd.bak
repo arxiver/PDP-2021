@@ -1,37 +1,106 @@
 Library IEEE;
 USE IEEE.std_logic_1164.all;
 
-entity xbus is 
-port(	CLK: in std_logic ;
+entity CBUS is 
+port(	
+	-- CLOCK FOR WHOLE SYSTEM
+	CLK: in std_logic ;
+	-- TAKE DATA FROM ONE REGISTER
 	SRCen : in std_logic ;
+	-- SPECIFIY WHICH REGISTERS NEEDS THE DATA FROM THE BUS
 	DSTen : in std_logic ;
 	SRCsel : in std_logic_vector (2 downto 0) ;
 	DSTsel : in std_logic_vector (2 downto 0) ;
-	RESET_R0 : in std_logic ;
-	RESET_R1 : in std_logic ;
-	RESET_R2 : in std_logic ;
-	RESET_R3 : in std_logic ;
-	RESET_R4 : in std_logic ;
-	RESET_R5 : in std_logic ;
-	RESET_R6 : in std_logic ;
-	RESET_R7 : in std_logic ;
-
-	RESET_MDR : in std_logic ;
-	RESET_MAR : in std_logic ;
+	-- RESET BIT FOR EACH REGISTER
+	RESET_R0,RESET_R1,RESET_R2,RESET_R3,RESET_R4,RESET_R5,RESET_R6,RESET_R7  : IN STD_LOGIC ;
+	RESET_Y,RESET_TMP,RESET_MDR,RESET_MAR,RESET_Z : in std_logic ;
+	-- BUS DATA 
 	BUSdata : inout std_logic_vector (15 downto 0);
+	FLAGREG : inout std_logic_vector (15 downto 0);
 	WR,RD : IN std_logic 
 	);
 END entity ;
 
-architecture busarch of xbus is 
--- Decoder COMPONENT
+architecture CBUSARCH of CBUS is 
+-- ALU COMPONENT
+COMPONENT PALU_Entity is     
+port(Y,B,FlagsIn: IN std_logic_vector(15 DOWNTO 0);
+     Sel:IN std_logic_vector(4 downto 0);
+     F8:in std_logic;
+     F,FlagsOut:OUT std_logic_vector(15 DOWNTO 0));
+end COMPONENT PALU_Entity;
+
+-- IR 2 BUS DECODER COMPONENT
+
+COMPONENT IR_ToBus_Decoder_Entity 
+IS
+PORT ( IR,Flags: IN STD_LOGIC_VECTOR(15 downto 0);
+Offset : OUT STD_LOGIC_VECTOR(15 downto 0));
+END COMPONENT IR_ToBus_Decoder_Entity;
+
+-- PALU DECODER COMPONENT
+COMPONENT PALU_Decoder_Entity 
+IS
+PORT ( IR: IN STD_LOGIC_VECTOR(15 downto 0) ;
+F5: IN STD_LOGIC_VECTOR(1 downto 0);
+OP : OUT STD_LOGIC_VECTOR(4 downto 0));
+END COMPONENT PALU_Decoder_Entity;
+
+-- Control Word decoder
+COMPONENT uARDecoder is
+		port (
+		-- INPUT SIGNALS
+		uAR_Data : in std_logic_vector (25 downto 0) ; 
+		IR : in std_logic_vector (15 downto 0) ; 
+		-- F0
+		NXTAdd : out std_logic_vector (7 downto 0) ; 
+		-- F1
+		PCout : out std_logic; 
+		MDRout : out std_logic; 
+		Zout : out std_logic; 
+		TEMPout : out std_logic; 
+		IRaddfield : out std_logic; 
+		-- RSRC , RDST out
+		R0out,R1out,R2out,R3out,R4out,R5out,R6out,R7out : out std_logic; 
+		-- F2
+		PCin : out std_logic; 
+		IRin : out std_logic; 
+		Zin : out std_logic; 
+		R0in,R1in,R2in,R3in,R4in,R5in,R6in,R7in : out std_logic; 
+		-- F3
+		MARin : out std_logic; 
+		MDRin : out std_logic; 
+		-- F4
+		Yin : out std_logic; 
+		TEMPin: out std_logic; 
+		-- F5
+		ADDSIG :  out std_logic; 
+		INCSIG :  out std_logic; 
+		DECSIG :  out std_logic; 
+		-- ALU IS WORKING THE INSTRUCTION
+		IROPR :  out std_logic; 
+		-- F6
+		RDen :  out std_logic; 
+		WRen :  out std_logic; 
+		
+		-- F7
+		ORdst :  out std_logic; 
+		ORindst :  out std_logic; 
+		ORinsrc :  out std_logic; 
+		ORresult :  out std_logic; 
+		PLAout :  out std_logic
+		
+		);
+END COMPONENT;
+
+-- Decoder Include
 COMPONENT decoder24 is
 port (S : in std_logic_vector (2 downto 0) ; 
 EN : in std_logic;
 F :out std_logic_vector( 5 downto 0 ));
 END COMPONENT;
 
--- Tristate COMPONENT
+-- Tristate Include
 COMPONENT tristate is
 generic ( n: integer:=16);
   Port(
@@ -40,7 +109,7 @@ generic ( n: integer:=16);
   EN : in std_logic);
 END COMPONENT;
 
--- Register COMPONENT
+-- Register Include
 COMPONENT reg is 
 generic (n:integer := 16);
 port(	clk : in std_logic ; 
@@ -50,7 +119,7 @@ port(	clk : in std_logic ;
 	q	: out std_logic_vector(n-1 downto 0)
 );
 END COMPONENT;
--- Ram COMPONENT
+-- Ram Include
 COMPONENT ram IS
 	PORT(
 		clk : IN std_logic;
@@ -63,32 +132,75 @@ END COMPONENT ram;
 
 signal SRC_DECODED_SEL : std_logic_vector (5 downto 0);
 signal DST_DECODED_SEL : std_logic_vector (5 downto 0);
-signal R0_DATA , R1_DATA , R2_DATA , R3_DATA , MDR_DATA ,MAR_DATA: std_logic_vector (15 downto 0);
+signal R0_DATA , R1_DATA , R2_DATA , R3_DATA , MDR_DATA , MAR_DATA: std_logic_vector (15 downto 0);
+signal R4_DATA , R5_DATA , R6_DATA , R7_DATA , TEMP_DATA , Y_DATA , Z_DATA , IR_DATA: std_logic_vector (15 downto 0);
+
+signal CONTROL_WORD : std_logic_vector (25 downto 0);
+signal PCout,MDRout,Zout,TEMPout,IRaddfield,R0out,R1out,R2out,R3out,R4out,R5out,R6out,R7out : std_logic;
+signal PCin,IRin,Zin,R0in,R1in,R2in,R3in,R4in,R5in,R6in,R7in : std_logic;
+signal MARin,MDRin,Yin,TEMPin,ADDSIG,INCSIG,DECSIG,IROPR,RDen,WRen,ORdst,ORindst,ORinsrc,ORresult,PLAout : std_logic;
+
+signal ALU_OUTPUT : std_logic_vector ( 15 downto 0);
 signal MDR_IN_FROM_RAM : std_logic_vector (15 downto 0);
-signal MDR_IN : std_logic_vector (15 downto 0);
+signal MDR_INdata : std_logic_vector (15 downto 0);
+signal microAR : std_logic_vector (25 downto 0);
+
 signal MDR_EN : std_logic ;
+
+signal ALUsel : std_logic_vector (4 downto 0);
+signal FLAGS_DATA : std_logic_vector (15 downto 0);
+signal OFFSET_BRANCH : std_logic_vector (15 downto 0);
+
+
 begin 
 SEL_SRC_DEC : decoder24 port map ( SRCsel,SRCen,SRC_DECODED_SEL);
 SEL_DST_DEC : decoder24 port map ( DSTsel,DSTen,DST_DECODED_SEL);
 
-R0_TRI : tristate port map(R0_DATA,BUSdata,SRC_DECODED_SEL(0));
-R1_TRI : tristate port map(R1_DATA,BUSdata,SRC_DECODED_SEL(1));
-R2_TRI : tristate port map(R2_DATA,BUSdata,SRC_DECODED_SEL(2));
-R3_TRI : tristate port map(R3_DATA,BUSdata,SRC_DECODED_SEL(3));
-MDR_TRI : tristate port map(MDR_DATA,BUSdata,SRC_DECODED_SEL(4));
+R0_TRI : tristate port map(R0_DATA,BUSdata,R0out);
+R1_TRI : tristate port map(R1_DATA,BUSdata,R1out);
+R2_TRI : tristate port map(R2_DATA,BUSdata,R2out);
+R3_TRI : tristate port map(R3_DATA,BUSdata,R3out);
+R4_TRI : tristate port map(R4_DATA,BUSdata,R4out);
+R5_TRI : tristate port map(R5_DATA,BUSdata,R5out);
+R6_TRI : tristate port map(R6_DATA,BUSdata,R6out);
+R7_TRI : tristate port map(R7_DATA,BUSdata,R7out);
+
+RY_TRI : tristate port map(Y_DATA,BUSdata,'0');
+TEMP_TRI : tristate port map(TEMP_DATA,BUSdata,TEMPout);
+Z_TRI : tristate port map(Z_DATA,BUSdata,Zout);
+
+IR_TRI : tristate port map(IR_DATA,BUSdata,'0');
+MDR_TRI : tristate port map(MDR_DATA,BUSdata,MDRout);
 MAR_TRI : tristate port map(MAR_DATA,BUSdata,'0');
 
-R0: reg port map(CLK,RESET_R0,DST_DECODED_SEL(0),BUSdata,R0_DATA);
-R1: reg port map(CLK,RESET_R1,DST_DECODED_SEL(1),BUSdata,R1_DATA);
-R2: reg port map(CLK,RESET_R2,DST_DECODED_SEL(2),BUSdata,R2_DATA);
-R3: reg port map(CLK,RESET_R3,DST_DECODED_SEL(3),BUSdata,R3_DATA);
+R0 : reg port map(CLK,RESET_R0,R0in,BUSdata,R0_DATA);
+R1 : reg port map(CLK,RESET_R1,R1in,BUSdata,R1_DATA);
+R2 : reg port map(CLK,RESET_R2,R2in,BUSdata,R2_DATA);
+R3 : reg port map(CLK,RESET_R3,R3in,BUSdata,R3_DATA);
+R4 : reg port map(CLK,RESET_R4,R4in,BUSdata,R4_DATA);
+R5 : reg port map(CLK,RESET_R5,R5in,BUSdata,R5_DATA);
+R6 : reg port map(CLK,RESET_R6,R6in,BUSdata,R6_DATA);
+R7 : reg port map(CLK,RESET_R7,R7in,BUSdata,R7_DATA);
 
+RY : reg port map(CLK,RESET_R7,Yin,BUSdata,Y_DATA);
+RZ : reg port map(CLK,RESET_R7,Zin,BUSdata,Z_DATA);
+TEMP : reg port map(CLK,RESET_TMP,TEMPin,BUSdata,TEMP_DATA);
 
-MDR: reg port map(CLK,RESET_MDR,MDR_EN,MDR_IN,MDR_DATA);
-MAR: reg port map(CLK,RESET_MAR,DST_DECODED_SEL(5),BUSdata,MAR_DATA);
+IR :  reg port map(CLK,RESET_TMP,IRin,BUSdata,IR_DATA);
+MDR : reg port map(CLK,RESET_MDR,MDRin,MDR_INdata,MDR_DATA);
+MAR : reg port map(CLK,RESET_MAR,MARin,BUSdata,MAR_DATA);
+-- EDIT IT - SIGNAL F OUTPUT 
+-- to be added signals
 
-MDR_IN <= MDR_IN_FROM_RAM WHEN ( RD = '1' and WR = '0' and DST_DECODED_SEL(4) = '0') else  BUSdata When DST_DECODED_SEL(4) = '1';
-MDR_EN <= DST_DECODED_SEL(4) or RD ;
+-- ALU SECTION
+ALUDECODER : PALU_Decoder_Entity port map(IR_DATA,CONTROL_WORD(7 downto 6),ALUsel)
+ALU0 : PALU_Entity port map(Y_DATA,BUSdata,FLAGS_DATA,ALUsel,IROPR,ALU_OUTPUT,FLAGS_DATA)
+IR_FIELD : IR_ToBus_Decoder_Entity(IR_DATA,FLAGS_DATA,OFFSET_BRANCH)
+
+CW_DECODE : uARDecoder port map(CONTROL_WORD,IR_DATA,PCout=>PCout,MDRout=>MDRout,Zout=>Zout,TEMPout=>TEMPout,IRaddfield=>IRaddfield,R0out=>R0out,R1out=>R1out,R2out=>R2out,R3out=>R3out,R4out=>R4out,R5out=>R5out,R6out=>R6out,R7out=>R7out,PCin=>PCin,IRin=>IRin,Zin=>Zin,R0in=>R0in,R1in=>R1in,R2in=>R2in,R3in=>R3in,R4in=>R4in,R5in=>R5in,R6in=>R6in,R7in=>R7in,MARin=>MARin,MDRin=>MDRin,Yin=>Yin,TEMPin=>TEMPin,ADDSIG=>ADDSIG,INCSIG=>INCSIG,DECSIG=>DECSIG,IROPR=>IROPR,RDen=>RDen,WRen=>WRen,ORdst=>ORdst,ORindst=>ORindst,ORinsrc=>ORinsrc,ORresult=>ORresult,PLAout=>PLAout );
+
+MDR_INdata <= MDR_IN_FROM_RAM WHEN ( RD = '1' and WR = '0' and DST_DECODED_SEL(4) = '0') else  BUSdata When DST_DECODED_SEL(4) = '1';
+MDR_EN <= MDRin or RDen ;
 RAM0 : RAM port map(CLK,WR,RD,MAR_DATA(7 downto 0),MDR_DATA,MDR_IN_FROM_RAM);
 
 

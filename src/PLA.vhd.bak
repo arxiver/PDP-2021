@@ -15,4 +15,4 @@ F <= "01000000" WHEN IR(15 downto 12) = "0000"
  	    ELSE "01000000"  ;				      
 
 
-end PLA_Arch;
+end PLA_Arch

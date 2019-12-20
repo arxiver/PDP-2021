@@ -11,7 +11,7 @@ NXTAdd : out std_logic_vector (7 downto 0) ;
 PCout : out std_logic; 
 MDRout : out std_logic; 
 Zout : out std_logic; 
-RTEMP : out std_logic; 
+TEMPout : out std_logic; 
 IRaddfield : out std_logic; 
 -- RSRC , RDST out
 R0out,R1out,R2out,R3out,R4out,R5out,R6out,R7out : out std_logic; 
@@ -24,8 +24,8 @@ R0in,R1in,R2in,R3in,R4in,R5in,R6in,R7in : out std_logic;
 MARin : out std_logic; 
 MDRin : out std_logic; 
 -- F4
-RYin : out std_logic; 
-RTMPin: out std_logic; 
+Yin : out std_logic; 
+TEMPin: out std_logic; 
 -- F5
 ADDSIG :  out std_logic; 
 INCSIG :  out std_logic; 
@@ -64,7 +64,7 @@ R5out <= '1' when ( ( uAR_Data(17 downto 15) = "100" and IR(8 downto 6) = "101" 
 R6out <= '1' when ( ( uAR_Data(17 downto 15) = "100" and IR(8 downto 6) = "110" ) or ( uAR_Data(17 downto 15) = "101" and IR(2 downto 0) = "110" ) ) else '0' ;
 R7out <= '1' when ( ( uAR_Data(17 downto 15) = "100" and IR(8 downto 6) = "111" ) or ( uAR_Data(17 downto 15) = "101" and IR(2 downto 0) = "111" ) ) else '0' ;
 IRaddfield <= '1' when uAR_Data(17 downto 15) = "111" else '0' ;
-RTEMP <= '1' when uAR_Data(17 downto 15) = "110" else '0' ;
+TEMPout <= '1' when uAR_Data(17 downto 15) = "110" else '0' ;
 
 -- F2
 PCin  <= '1' when uAR_Data(14 downto 12) = "001" else '0' ;
@@ -83,8 +83,8 @@ R7in <= '1' when ( ( uAR_Data(14 downto 12) = "100" and IR(8 downto 6) = "111" )
 MARin  <= '1' when uAR_Data(11 downto 10) = "01" else '0' ;
 MDRin <= '1' when uAR_Data(11 downto 10) = "10" else '0' ;
 -- F4
-RYin  <= '1' when uAR_Data(9 downto 8) = "01" else '0' ;
-RTMPin <= '1' when uAR_Data(9 downto 8) = "10" else '0' ;
+Yin  <= '1' when uAR_Data(9 downto 8) = "01" else '0' ;
+TEMPin <= '1' when uAR_Data(9 downto 8) = "10" else '0' ;
 -- F5
 ADDSIG <= '1' when uAR_Data(7 downto 6) = "00" else '0' ;
 INCSIG <= '1' when uAR_Data(7 downto 6) = "01" else '0' ;
