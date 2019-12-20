@@ -15,7 +15,7 @@ end entity;
 architecture arch_bit_oring of bit_oring is
 begin 
 
-m_micro_AR <= oring_bits when oring_bits ="000" --if no it oring is required put high impendence 
+m_micro_AR <= address_mod when oring_bits ="000" --if no it oring is required put high impendence 
 else PLA_input when oring_bits="101"  --if PLA needed 
 else address_mod(7 downto 1) & (address_mod(0) or IR(5)) when oring_bits="011" --indirect distenation oring required
 else address_mod(7 downto 1) & (address_mod(0) or IR(8)) when oring_bits="010" --indirect source oring required
