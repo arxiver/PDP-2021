@@ -91,6 +91,8 @@ INCSIG <= '1' when CWData(6 downto 5) = "01" else '0' ;
 DECSIG <= '1' when CWData(6 downto 5) = "10" else '0' ;
 -- ALU IS WORKING THE INSTRUCTION
 IROPR <= '1' when CWData(6 downto 5) = "11" else '0' ;
+
+
 -- F6
 RDen <= '1' when CWData(4 downto 3) = "01" else '0' ;
 WRen <= '1' when CWData(4 downto 3) = "10" else '0' ;

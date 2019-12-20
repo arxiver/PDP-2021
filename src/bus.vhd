@@ -227,14 +227,14 @@ MAR : reg port map(CLK,RESET_MAR,MARin,BUSdata,MAR_DATA);
 -- to be added signals
 
 -- ALU SECTION
-ALUDECODER : PALU_Decoder_Entity port map(IR_DATA,CONTROL_WORD(7 downto 6),ALUsel);
+ALUDECODER : PALU_Decoder_Entity port map(IR_DATA,CONTROL_WORD(6 downto 5),ALUsel);
 ALU0 : PALU_Entity port map(Y_DATA,BUSdata,FLAGS_DATA,ALUsel,IROPR,ALU_OUTPUT,FLAGS_DATA);
 IR_FIELD_DECODE : IR_ToBus_Decoder_Entity port map(IR_DATA,FLAGS_DATA,OFFSET_BRANCH);
 
 CW_DECODE : CWDecoder port map(CONTROL_WORD,IR_DATA,PCout=>PCout,MDRout=>MDRout,Zout=>Zout,TEMPout=>TEMPout,IRaddfield=>IRaddfield,R0out=>R0out,R1out=>R1out,R2out=>R2out,R3out=>R3out,R4out=>R4out,R5out=>R5out,R6out=>R6out,R7out=>R7out,PCin=>PCin,IRin=>IRin,Zin=>Zin,R0in=>R0in,R1in=>R1in,R2in=>R2in,R3in=>R3in,R4in=>R4in,R5in=>R5in,R6in=>R6in,R7in=>R7in,MARin=>MARin,MDRin=>MDRin,Yin=>Yin,TEMPin=>TEMPin,ADDSIG=>ADDSIG,INCSIG=>INCSIG,DECSIG=>DECSIG,IROPR=>IROPR,RDen=>RDen,WRen=>WRen,ORdst=>ORdst,ORindst=>ORindst,ORinsrc=>ORinsrc,ORresult=>ORresult,PLAout=>PLAout );
 -- to be added signals
 PLA0 : PLA_Entity port map(IR_DATA , PLA_OUTdata);
-BITORING0 : bit_oring port map(CONTROL_WORD(3 downto 1),CONTROL_WORD(24 downto 17),IR_DATA,PLA_OUTdata,uARnew );
+BITORING0 : bit_oring port map(CONTROL_WORD(2 downto 0),CONTROL_WORD(24 downto 17),IR_DATA,PLA_OUTdata,uARnew );
 
 MDR_INdata <= MDR_IN_FROM_RAM WHEN ( RDen = '1' and WRen = '0' and MDRin = '0' ) else  BUSdata When MDRin = '1';
 MDR_EN <= MDRin or RDen ;
