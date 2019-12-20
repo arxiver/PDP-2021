@@ -1,0 +1,42 @@
+D:/PDP-2021/src/tristate.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/tristate.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tristate
+-- Compiling architecture tristatearc of tristate
+
+} {} {}} D:/PDP-2021/src/ram.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/ram.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ram
+-- Compiling architecture syncrama of ram
+
+} {} {}} D:/PDP-2021/src/register.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/register.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity reg
+-- Compiling architecture regarc of reg
+
+} {} {}} D:/PDP-2021/src/bus.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/bus.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity CBUS
+-- Compiling architecture CBUSARCH of CBUS
+
+} {} {}} D:/PDP-2021/src/decoder.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/decoder.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity decoder24
+-- Compiling architecture decoderarc of decoder24
+
+} {} {}}

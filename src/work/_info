@@ -9,35 +9,35 @@ z2
 !i10f 100
 cModel Technology
 dD:/PDP-2021
-Edecoder24
-Z0 w1576223736
+Ecbus
+Z0 w1576853803
 Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 Z3 dD:/PDP-2021/src
-Z4 8D:/PDP-2021/src/decoder.vhd
-Z5 FD:/PDP-2021/src/decoder.vhd
+Z4 8D:/PDP-2021/src/bus.vhd
+Z5 FD:/PDP-2021/src/bus.vhd
 l0
-L3
-VzM;S>5O3G>>4e9mhF4zPQ2
-!s100 :LDf=lW_UUlf[egakWO`62
+L4
+VBc2zm5WlJC410k6`G]UFY1
+!s100 <90Q7=IMWmaDYad5S_`W>3
 Z6 OV;C;2019.2;69
 32
-Z7 !s110 1576781630
+Z7 !s110 1576858221
 !i10b 1
-Z8 !s108 1576781630.000000
-Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/decoder.vhd|
-Z10 !s107 D:/PDP-2021/src/decoder.vhd|
+Z8 !s108 1576858221.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/bus.vhd|
+Z10 !s107 D:/PDP-2021/src/bus.vhd|
 !i113 1
 Z11 o-work work -2002 -explicit
 Z12 tExplicit 1 CvgOpt 0
-Adecoderarc
+Acbusarch
 R1
 R2
-DEx4 work 9 decoder24 0 22 zM;S>5O3G>>4e9mhF4zPQ2
-l10
-L9
-V7m2@cOC<;EbVNXVGjYOW71
-!s100 1bO`EABW@XRU3E6E0H1hb2
+DEx4 work 4 cbus 0 22 Bc2zm5WlJC410k6`G]UFY1
+l70
+L23
+Vk<CmChDnle>9j3o]`Qh5;2
+!s100 KH^cLB?[adM@ChFDV^n=Z0
 R6
 32
 R7
@@ -48,30 +48,69 @@ R10
 !i113 1
 R11
 R12
-Eram
-Z13 w1576256996
-Z14 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Edecoder24
+Z13 w1576223736
 R1
 R2
 R3
-Z15 8D:/PDP-2021/src/ram.vhd
-Z16 FD:/PDP-2021/src/ram.vhd
+Z14 8D:/PDP-2021/src/decoder.vhd
+Z15 FD:/PDP-2021/src/decoder.vhd
+l0
+L3
+VzM;S>5O3G>>4e9mhF4zPQ2
+!s100 :LDf=lW_UUlf[egakWO`62
+R6
+32
+Z16 !s110 1576857910
+!i10b 1
+Z17 !s108 1576857910.000000
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/decoder.vhd|
+Z19 !s107 D:/PDP-2021/src/decoder.vhd|
+!i113 1
+R11
+R12
+Adecoderarc
+R1
+R2
+DEx4 work 9 decoder24 0 22 zM;S>5O3G>>4e9mhF4zPQ2
+l10
+L9
+V7m2@cOC<;EbVNXVGjYOW71
+!s100 1bO`EABW@XRU3E6E0H1hb2
+R6
+32
+R16
+!i10b 1
+R17
+R18
+R19
+!i113 1
+R11
+R12
+Eram
+Z20 w1576256996
+Z21 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R1
+R2
+R3
+Z22 8D:/PDP-2021/src/ram.vhd
+Z23 FD:/PDP-2021/src/ram.vhd
 l0
 L5
 VIK0hn`n:DN]Y@E]kSBL2o0
 !s100 9GUgc<BhhcIO2KW>Sn0iZ3
 R6
 32
-R7
+R16
 !i10b 1
-R8
-Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/ram.vhd|
-Z18 !s107 D:/PDP-2021/src/ram.vhd|
+R17
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/ram.vhd|
+Z25 !s107 D:/PDP-2021/src/ram.vhd|
 !i113 1
 R11
 R12
 Asyncrama
-R14
+R21
 R1
 R2
 DEx4 work 3 ram 0 22 IK0hn`n:DN]Y@E]kSBL2o0
@@ -81,32 +120,32 @@ VcGJ2B6B`Ri?Y]]X?i@QL21
 !s100 l[R0n>kHEiP7OR9]ZWW[a0
 R6
 32
-R7
+R16
 !i10b 1
-R8
 R17
-R18
+R24
+R25
 !i113 1
 R11
 R12
 Ereg
-Z19 w1576253873
+Z26 w1576253873
 R1
 R2
 R3
-Z20 8D:/PDP-2021/src/register.vhd
-Z21 FD:/PDP-2021/src/register.vhd
+Z27 8D:/PDP-2021/src/register.vhd
+Z28 FD:/PDP-2021/src/register.vhd
 l0
 L4
 V<z_7DJEIY]B7lFd1:Fa`20
 !s100 IEW:dl4I5FkH[=95FQ2n?3
 R6
 32
-Z22 !s110 1576781631
+R16
 !i10b 1
-Z23 !s108 1576781631.000000
-Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/register.vhd|
-Z25 !s107 D:/PDP-2021/src/register.vhd|
+R17
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/register.vhd|
+Z30 !s107 D:/PDP-2021/src/register.vhd|
 !i113 1
 R11
 R12
@@ -120,32 +159,32 @@ VRg1K6?bUHAB?4VNhzD:Dn0
 !s100 CQ[QOz63TfBCVGFG8_gnI2
 R6
 32
-R22
+R16
 !i10b 1
-R23
-R24
-R25
+R17
+R29
+R30
 !i113 1
 R11
 R12
 Etristate
-Z26 w1576253812
+Z31 w1576253812
 R1
 R2
 R3
-Z27 8D:/PDP-2021/src/tristate.vhd
-Z28 FD:/PDP-2021/src/tristate.vhd
+Z32 8D:/PDP-2021/src/tristate.vhd
+Z33 FD:/PDP-2021/src/tristate.vhd
 l0
 L3
 VfCNad9o5?IlR`k`>EWVjf2
 !s100 A0A4@N>=>AB=?NQfDMh7:3
 R6
 32
-R22
+Z34 !s110 1576857911
 !i10b 1
-R23
-Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/tristate.vhd|
-!s107 D:/PDP-2021/src/tristate.vhd|
+Z35 !s108 1576857911.000000
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/tristate.vhd|
+Z37 !s107 D:/PDP-2021/src/tristate.vhd|
 !i113 1
 R11
 R12
@@ -159,32 +198,71 @@ VG7hDXhi[0K4M>59XH@1IL2
 !s100 =nTcbjg[zWn4JEm2]5VIN0
 R6
 32
-R22
+R34
 !i10b 1
-R23
-R29
-Z30 !s107 D:/PDP-2021/src/tristate.vhd|
+R35
+R36
+R37
+!i113 1
+R11
+R12
+Euardecoder
+Z38 w1576858216
+R1
+R2
+R3
+Z39 8D:/PDP-2021/src/uARdecoder.vhd
+Z40 FD:/PDP-2021/src/uARdecoder.vhd
+l0
+L3
+V1midah9cVLFlb`iV6M?3?2
+!s100 UO0O5E_R<RHUge^7dO0iK0
+R6
+32
+Z41 !s110 1576858229
+!i10b 1
+Z42 !s108 1576858229.000000
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/uARdecoder.vhd|
+Z44 !s107 D:/PDP-2021/src/uARdecoder.vhd|
+!i113 1
+R11
+R12
+Auardecoderarch
+R1
+R2
+DEx4 work 10 uardecoder 0 22 1midah9cVLFlb`iV6M?3?2
+l50
+L49
+Z45 VOcQePVd]degaJ[HmlDe2a0
+Z46 !s100 z<K:kVKGozY`jH`zYQM^N3
+R6
+32
+R41
+!i10b 1
+R42
+R43
+R44
 !i113 1
 R11
 R12
 Exbus
-Z31 w1576256812
+Z47 w1576256812
 R1
 R2
 R3
-Z32 8D:/PDP-2021/src/bus.vhd
-Z33 FD:/PDP-2021/src/bus.vhd
+R4
+R5
 l0
 L4
 VkbVZ=HkGU>c0T@<KFl23P0
 !s100 2XohI>U1;JQPkGSz_9ez@3
 R6
 32
-Z34 !s110 1576781629
+Z48 !s110 1576781629
 !i10b 1
-Z35 !s108 1576781628.000000
-Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/bus.vhd|
-Z37 !s107 D:/PDP-2021/src/bus.vhd|
+Z49 !s108 1576781628.000000
+R9
+R10
 !i113 1
 R11
 R12
@@ -198,11 +276,11 @@ VR`HFm4=2SJHSfY3Ck2Cz=3
 !s100 C?BDBHYZ=SDhMn9UQ]93:0
 R6
 32
-R34
+R48
 !i10b 1
-R35
-R36
-R37
+R49
+R9
+R10
 !i113 1
 R11
 R12
