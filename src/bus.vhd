@@ -22,6 +22,26 @@ port(
 END entity ;
 
 architecture CBUSARCH of CBUS is 
+
+-- PLA COMP
+COMPONENT PLA_Entity is     
+port(IR: IN std_logic_vector(15 DOWNTO 0);
+     F:OUT std_logic_vector(7 DOWNTO 0));
+end COMPONENT PLA_Entity;
+
+-- BIT ORING COMPONENT
+
+COMPONENT bit_oring is 
+port (
+oring_bits :in std_logic_vector(2 downto 0);
+address_mod:in std_logic_vector(7 downto 0);
+IR: in std_logic_vector(15 downto 0);
+PLA_input: in std_logic_vector(15 downto 0);
+m_micro_AR : out std_logic_vector(7 downto 0)
+);
+end COMPONENT;
+
+
 -- ALU COMPONENT
 COMPONENT PALU_Entity is     
 port(Y,B,FlagsIn: IN std_logic_vector(15 DOWNTO 0);
@@ -152,6 +172,10 @@ signal FLAGS_DATA : std_logic_vector (15 downto 0);
 signal OFFSET_BRANCH : std_logic_vector (15 downto 0);
 
 signal PCfin , PCfout : std_logic ;
+
+signal PLA_OUTdata : std_logic_vector (7 downto 0);
+signal uARnew : std_logic_vector (7 downto 0);
+
 begin 
 SEL_SRC_DEC : decoder24 port map ( SRCsel,SRCen,SRC_DECODED_SEL);
 SEL_DST_DEC : decoder24 port map ( DSTsel,DSTen,DST_DECODED_SEL);
@@ -198,6 +222,9 @@ ALU0 : PALU_Entity port map(Y_DATA,BUSdata,FLAGS_DATA,ALUsel,IROPR,ALU_OUTPUT,FL
 IR_FIELD_DECODE : IR_ToBus_Decoder_Entity port map(IR_DATA,FLAGS_DATA,OFFSET_BRANCH);
 
 CW_DECODE : uARDecoder port map(CONTROL_WORD,IR_DATA,PCout=>PCout,MDRout=>MDRout,Zout=>Zout,TEMPout=>TEMPout,IRaddfield=>IRaddfield,R0out=>R0out,R1out=>R1out,R2out=>R2out,R3out=>R3out,R4out=>R4out,R5out=>R5out,R6out=>R6out,R7out=>R7out,PCin=>PCin,IRin=>IRin,Zin=>Zin,R0in=>R0in,R1in=>R1in,R2in=>R2in,R3in=>R3in,R4in=>R4in,R5in=>R5in,R6in=>R6in,R7in=>R7in,MARin=>MARin,MDRin=>MDRin,Yin=>Yin,TEMPin=>TEMPin,ADDSIG=>ADDSIG,INCSIG=>INCSIG,DECSIG=>DECSIG,IROPR=>IROPR,RDen=>RDen,WRen=>WRen,ORdst=>ORdst,ORindst=>ORindst,ORinsrc=>ORinsrc,ORresult=>ORresult,PLAout=>PLAout );
+-- to be added signals
+PLA0 : PLA_Entity port map(IR_DATA , PLA_OUTdata);
+BITORING0 : bit_oring port map(CONTROL_WORD(3 downto 1),CONTROL_WORD(25 downto 18),IR_DATA,PLA_OUTdata,uARnew );
 
 MDR_INdata <= MDR_IN_FROM_RAM WHEN ( RD = '1' and WR = '0' and DST_DECODED_SEL(4) = '0') else  BUSdata When DST_DECODED_SEL(4) = '1';
 MDR_EN <= MDRin or RDen ;
