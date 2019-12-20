@@ -31,6 +31,3 @@ else address_mod(7 downto 1) & (address_mod(0) or ((IR(5) nand IR(4))  nand IR(3
 
 end architecture;
 
-
-
-
