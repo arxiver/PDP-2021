@@ -5,38 +5,48 @@ entity CBUS is
 port(	
 	-- CLOCK FOR WHOLE SYSTEM
 	CLK: in std_logic ;
-	-- TAKE DATA FROM ONE REGISTER
-	SRCen : in std_logic ;
-	-- SPECIFIY WHICH REGISTERS NEEDS THE DATA FROM THE BUS
-	DSTen : in std_logic ;
-	SRCsel : in std_logic_vector (2 downto 0) ;
-	DSTsel : in std_logic_vector (2 downto 0) ;
 	-- RESET BIT FOR EACH REGISTER
 	RESET_R0,RESET_R1,RESET_R2,RESET_R3,RESET_R4,RESET_R5,RESET_R6,RESET_R7  : IN STD_LOGIC ;
 	RESET_Y,RESET_TMP,RESET_MDR,RESET_MAR,RESET_Z : in std_logic ;
 	-- BUS DATA 
 	BUSdata : inout std_logic_vector (15 downto 0);
-	FLAGREG : inout std_logic_vector (15 downto 0);
-	WR,RD : IN std_logic 
+	FLAGREG : inout std_logic_vector (15 downto 0)
 	);
 END entity ;
 
 architecture CBUSARCH of CBUS is 
 
--- PLA COMP
+-- RAM COMPONENT
+COMPONENT RamEnt is
+    port(
+            Initial,Clk : in std_logic;
+            PC : in std_logic_vector(7 downto 0);
+            DataOut : out std_logic_vector(15 downto 0)
+        );
+end COMPONENT;
+
+-- ROM COMPONENT
+COMPONENT RomEnt is
+    port(
+            Clk : in std_logic;
+            Address : in std_logic_vector(7 downto 0);
+            Output : out std_logic_vector(24 downto 0)
+        );
+end COMPONENT;
+
+-- PLA COMPONENT
 COMPONENT PLA_Entity is     
 port(IR: IN std_logic_vector(15 DOWNTO 0);
      F:OUT std_logic_vector(7 DOWNTO 0));
 end COMPONENT PLA_Entity;
 
 -- BIT ORING COMPONENT
-
 COMPONENT bit_oring is 
 port (
 oring_bits :in std_logic_vector(2 downto 0);
 address_mod:in std_logic_vector(7 downto 0);
 IR: in std_logic_vector(15 downto 0);
-PLA_input: in std_logic_vector(15 downto 0);
+PLA_input: in std_logic_vector(7 downto 0);
 m_micro_AR : out std_logic_vector(7 downto 0)
 );
 end COMPONENT;
@@ -50,8 +60,7 @@ port(Y,B,FlagsIn: IN std_logic_vector(15 DOWNTO 0);
      F,FlagsOut:OUT std_logic_vector(15 DOWNTO 0));
 end COMPONENT PALU_Entity;
 
--- IR 2 BUS DECODER COMPONENT
-
+-- IR2BUS DECODER COMPONENT
 COMPONENT IR_ToBus_Decoder_Entity 
 IS
 PORT ( IR,Flags: IN STD_LOGIC_VECTOR(15 downto 0);
@@ -67,10 +76,10 @@ OP : OUT STD_LOGIC_VECTOR(4 downto 0));
 END COMPONENT PALU_Decoder_Entity;
 
 -- Control Word decoder
-COMPONENT uARDecoder is
+COMPONENT CWDecoder is
 		port (
 		-- INPUT SIGNALS
-		uAR_Data : in std_logic_vector (25 downto 0) ; 
+		CWData : in std_logic_vector (24 downto 0) ; 
 		IR : in std_logic_vector (15 downto 0) ; 
 		-- F0
 		NXTAdd : out std_logic_vector (7 downto 0) ; 
@@ -113,14 +122,14 @@ COMPONENT uARDecoder is
 		);
 END COMPONENT;
 
--- Decoder Include
+-- Decoder COMPONENT
 COMPONENT decoder24 is
 port (S : in std_logic_vector (2 downto 0) ; 
 EN : in std_logic;
 F :out std_logic_vector( 5 downto 0 ));
 END COMPONENT;
 
--- Tristate Include
+-- Tristate COMPONENT
 COMPONENT tristate is
 generic ( n: integer:=16);
   Port(
@@ -129,7 +138,7 @@ generic ( n: integer:=16);
   EN : in std_logic);
 END COMPONENT;
 
--- Register Include
+-- Register COMPONENT
 COMPONENT reg is 
 generic (n:integer := 16);
 port(	clk : in std_logic ; 
@@ -139,7 +148,7 @@ port(	clk : in std_logic ;
 	q	: out std_logic_vector(n-1 downto 0)
 );
 END COMPONENT;
--- Ram Include
+-- Ram COMPONENT
 COMPONENT ram IS
 	PORT(
 		clk : IN std_logic;
@@ -155,7 +164,7 @@ signal DST_DECODED_SEL : std_logic_vector (5 downto 0);
 signal R0_DATA , R1_DATA , R2_DATA , R3_DATA , MDR_DATA , MAR_DATA: std_logic_vector (15 downto 0);
 signal R4_DATA , R5_DATA , R6_DATA , R7_DATA , TEMP_DATA , Y_DATA , Z_DATA , IR_DATA: std_logic_vector (15 downto 0);
 
-signal CONTROL_WORD : std_logic_vector (25 downto 0);
+signal CONTROL_WORD : std_logic_vector (24 downto 0);
 signal PCout,MDRout,Zout,TEMPout,IRaddfield,R0out,R1out,R2out,R3out,R4out,R5out,R6out,R7out : std_logic;
 signal PCin,IRin,Zin,R0in,R1in,R2in,R3in,R4in,R5in,R6in,R7in : std_logic;
 signal MARin,MDRin,Yin,TEMPin,ADDSIG,INCSIG,DECSIG,IROPR,RDen,WRen,ORdst,ORindst,ORinsrc,ORresult,PLAout : std_logic;
@@ -163,7 +172,7 @@ signal MARin,MDRin,Yin,TEMPin,ADDSIG,INCSIG,DECSIG,IROPR,RDen,WRen,ORdst,ORindst
 signal ALU_OUTPUT : std_logic_vector ( 15 downto 0);
 signal MDR_IN_FROM_RAM : std_logic_vector (15 downto 0);
 signal MDR_INdata : std_logic_vector (15 downto 0);
-signal microAR : std_logic_vector (25 downto 0);
+signal microAR : std_logic_vector (24 downto 0);
 
 signal MDR_EN : std_logic ;
 
@@ -177,8 +186,7 @@ signal PLA_OUTdata : std_logic_vector (7 downto 0);
 signal uARnew : std_logic_vector (7 downto 0);
 
 begin 
-SEL_SRC_DEC : decoder24 port map ( SRCsel,SRCen,SRC_DECODED_SEL);
-SEL_DST_DEC : decoder24 port map ( DSTsel,DSTen,DST_DECODED_SEL);
+
 
 R0_TRI : tristate port map(R0_DATA,BUSdata,R0out);
 R1_TRI : tristate port map(R1_DATA,BUSdata,R1out);
@@ -221,14 +229,18 @@ ALUDECODER : PALU_Decoder_Entity port map(IR_DATA,CONTROL_WORD(7 downto 6),ALUse
 ALU0 : PALU_Entity port map(Y_DATA,BUSdata,FLAGS_DATA,ALUsel,IROPR,ALU_OUTPUT,FLAGS_DATA);
 IR_FIELD_DECODE : IR_ToBus_Decoder_Entity port map(IR_DATA,FLAGS_DATA,OFFSET_BRANCH);
 
-CW_DECODE : uARDecoder port map(CONTROL_WORD,IR_DATA,PCout=>PCout,MDRout=>MDRout,Zout=>Zout,TEMPout=>TEMPout,IRaddfield=>IRaddfield,R0out=>R0out,R1out=>R1out,R2out=>R2out,R3out=>R3out,R4out=>R4out,R5out=>R5out,R6out=>R6out,R7out=>R7out,PCin=>PCin,IRin=>IRin,Zin=>Zin,R0in=>R0in,R1in=>R1in,R2in=>R2in,R3in=>R3in,R4in=>R4in,R5in=>R5in,R6in=>R6in,R7in=>R7in,MARin=>MARin,MDRin=>MDRin,Yin=>Yin,TEMPin=>TEMPin,ADDSIG=>ADDSIG,INCSIG=>INCSIG,DECSIG=>DECSIG,IROPR=>IROPR,RDen=>RDen,WRen=>WRen,ORdst=>ORdst,ORindst=>ORindst,ORinsrc=>ORinsrc,ORresult=>ORresult,PLAout=>PLAout );
+CW_DECODE : CWDecoder port map(CONTROL_WORD,IR_DATA,PCout=>PCout,MDRout=>MDRout,Zout=>Zout,TEMPout=>TEMPout,IRaddfield=>IRaddfield,R0out=>R0out,R1out=>R1out,R2out=>R2out,R3out=>R3out,R4out=>R4out,R5out=>R5out,R6out=>R6out,R7out=>R7out,PCin=>PCin,IRin=>IRin,Zin=>Zin,R0in=>R0in,R1in=>R1in,R2in=>R2in,R3in=>R3in,R4in=>R4in,R5in=>R5in,R6in=>R6in,R7in=>R7in,MARin=>MARin,MDRin=>MDRin,Yin=>Yin,TEMPin=>TEMPin,ADDSIG=>ADDSIG,INCSIG=>INCSIG,DECSIG=>DECSIG,IROPR=>IROPR,RDen=>RDen,WRen=>WRen,ORdst=>ORdst,ORindst=>ORindst,ORinsrc=>ORinsrc,ORresult=>ORresult,PLAout=>PLAout );
 -- to be added signals
 PLA0 : PLA_Entity port map(IR_DATA , PLA_OUTdata);
-BITORING0 : bit_oring port map(CONTROL_WORD(3 downto 1),CONTROL_WORD(25 downto 18),IR_DATA,PLA_OUTdata,uARnew );
+BITORING0 : bit_oring port map(CONTROL_WORD(3 downto 1),CONTROL_WORD(24 downto 17),IR_DATA,PLA_OUTdata,uARnew );
 
-MDR_INdata <= MDR_IN_FROM_RAM WHEN ( RD = '1' and WR = '0' and DST_DECODED_SEL(4) = '0') else  BUSdata When DST_DECODED_SEL(4) = '1';
+-- MDR_INdata <= MDR_IN_FROM_RAM WHEN ( RD = '1' and WR = '0' and DST_DECODED_SEL(4) = '0') else  BUSdata When DST_DECODED_SEL(4) = '1';
 MDR_EN <= MDRin or RDen ;
-RAM0 : RAM port map(CLK,WR,RD,MAR_DATA(7 downto 0),MDR_DATA,MDR_IN_FROM_RAM);
+-- signal initREAD = '1' in begin
+
+--RAM0 : RamEnt port map(initREAD,CLK,R7_DATA,);
+-- CONTROL_STORE : RomEnt port map(CLK,uARnew,CONTROL_WORD);
+
 PCfin <= R7in or PCin;
 PCfout <= R7out or PCout;
 
