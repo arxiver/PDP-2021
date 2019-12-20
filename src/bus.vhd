@@ -18,11 +18,13 @@ architecture CBUSARCH of CBUS is
 
 -- RAM COMPONENT
 COMPONENT RamEnt is
-    port(
-            Initial,Clk : in std_logic;
-            PC : in std_logic_vector(7 downto 0);
-            DataOut : out std_logic_vector(15 downto 0)
-        );
+		port(
+				Initial :inout std_logic;
+				Clk,Wr,Re : in std_logic;
+				PC : in std_logic_vector(15 downto 0);
+				DataIn: in std_logic_vector(15 downto 0);
+				DataOut : out std_logic_vector(15 downto 0)
+			);
 end COMPONENT;
 
 -- ROM COMPONENT
@@ -184,7 +186,7 @@ signal PCfin , PCfout : std_logic ;
 
 signal PLA_OUTdata : std_logic_vector (7 downto 0);
 signal uARnew : std_logic_vector (7 downto 0);
-
+signal INITREAD : std_logic;
 begin 
 
 
@@ -234,12 +236,12 @@ CW_DECODE : CWDecoder port map(CONTROL_WORD,IR_DATA,PCout=>PCout,MDRout=>MDRout,
 PLA0 : PLA_Entity port map(IR_DATA , PLA_OUTdata);
 BITORING0 : bit_oring port map(CONTROL_WORD(3 downto 1),CONTROL_WORD(24 downto 17),IR_DATA,PLA_OUTdata,uARnew );
 
--- MDR_INdata <= MDR_IN_FROM_RAM WHEN ( RD = '1' and WR = '0' and DST_DECODED_SEL(4) = '0') else  BUSdata When DST_DECODED_SEL(4) = '1';
+MDR_INdata <= MDR_IN_FROM_RAM WHEN ( RDen = '1' and WRen = '0' and MDRin = '0' ) else  BUSdata When MDRin = '1';
 MDR_EN <= MDRin or RDen ;
 -- signal initREAD = '1' in begin
 
---RAM0 : RamEnt port map(initREAD,CLK,R7_DATA,);
--- CONTROL_STORE : RomEnt port map(CLK,uARnew,CONTROL_WORD);
+RAM0 : RamEnt port map(INITREAD,CLK,WRen,RDen,MAR_DATA,MDR_DATA,MDR_IN_FROM_RAM);
+CONTROL_STORE : RomEnt port map(CLK,uARnew,CONTROL_WORD);
 
 PCfin <= R7in or PCin;
 PCfout <= R7out or PCout;

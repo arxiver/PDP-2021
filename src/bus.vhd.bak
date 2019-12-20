@@ -10,7 +10,7 @@ port(
 	RESET_Y,RESET_TMP,RESET_MDR,RESET_MAR,RESET_Z : in std_logic ;
 	-- BUS DATA 
 	BUSdata : inout std_logic_vector (15 downto 0);
-	FLAGREG : inout std_logic_vector (15 downto 0)
+	FLAGREG : inout std_logic_vector (15 downto 0);
 	);
 END entity ;
 
@@ -79,7 +79,7 @@ END COMPONENT PALU_Decoder_Entity;
 COMPONENT CWDecoder is
 		port (
 		-- INPUT SIGNALS
-		uAR_Data : in std_logic_vector (24 downto 0) ; 
+		CWData : in std_logic_vector (24 downto 0) ; 
 		IR : in std_logic_vector (15 downto 0) ; 
 		-- F0
 		NXTAdd : out std_logic_vector (7 downto 0) ; 
@@ -184,7 +184,7 @@ signal PCfin , PCfout : std_logic ;
 
 signal PLA_OUTdata : std_logic_vector (7 downto 0);
 signal uARnew : std_logic_vector (7 downto 0);
-
+signal INITREAD : std_logic;
 begin 
 
 
@@ -232,13 +232,13 @@ IR_FIELD_DECODE : IR_ToBus_Decoder_Entity port map(IR_DATA,FLAGS_DATA,OFFSET_BRA
 CW_DECODE : CWDecoder port map(CONTROL_WORD,IR_DATA,PCout=>PCout,MDRout=>MDRout,Zout=>Zout,TEMPout=>TEMPout,IRaddfield=>IRaddfield,R0out=>R0out,R1out=>R1out,R2out=>R2out,R3out=>R3out,R4out=>R4out,R5out=>R5out,R6out=>R6out,R7out=>R7out,PCin=>PCin,IRin=>IRin,Zin=>Zin,R0in=>R0in,R1in=>R1in,R2in=>R2in,R3in=>R3in,R4in=>R4in,R5in=>R5in,R6in=>R6in,R7in=>R7in,MARin=>MARin,MDRin=>MDRin,Yin=>Yin,TEMPin=>TEMPin,ADDSIG=>ADDSIG,INCSIG=>INCSIG,DECSIG=>DECSIG,IROPR=>IROPR,RDen=>RDen,WRen=>WRen,ORdst=>ORdst,ORindst=>ORindst,ORinsrc=>ORinsrc,ORresult=>ORresult,PLAout=>PLAout );
 -- to be added signals
 PLA0 : PLA_Entity port map(IR_DATA , PLA_OUTdata);
-BITORING0 : bit_oring port map(CONTROL_WORD(3 downto 1),CONTROL_WORD(24 downto 18),IR_DATA,PLA_OUTdata,uARnew );
+BITORING0 : bit_oring port map(CONTROL_WORD(3 downto 1),CONTROL_WORD(24 downto 17),IR_DATA,PLA_OUTdata,uARnew );
 
--- MDR_INdata <= MDR_IN_FROM_RAM WHEN ( RD = '1' and WR = '0' and DST_DECODED_SEL(4) = '0') else  BUSdata When DST_DECODED_SEL(4) = '1';
+MDR_INdata <= MDR_IN_FROM_RAM WHEN ( RDen = '1' and WRen = '0' and MDRin = '0' ) else  BUSdata When MDRin = '1';
 MDR_EN <= MDRin or RDen ;
 -- signal initREAD = '1' in begin
 
---RAM0 : RamEnt port map(initREAD,CLK,R7_DATA,);
+RAM0 : RamEnt port map(INITREAD,CLK,WRen,REen,MAR_DATA,MDR_IN_FROM_RAM);
 CONTROL_STORE : RomEnt port map(CLK,uARnew,CONTROL_WORD);
 
 PCfin <= R7in or PCin;

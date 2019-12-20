@@ -15,7 +15,7 @@ ARCHITECTURE PALU_Decoder_Arch OF PALU_Decoder_Entity IS
 
 BEGIN
 
-OP <= "00010" WHEN F5 = "00"  			  --ADD operation
+OP <= "00000" WHEN F5 = "00"  			  --ADD operation
 	      ELSE "00100"  WHEN F5 = "01"   	  --INC Bus
 	      ELSE "00110" WHEN F5 = "10"	  --DEC Bus
 	      --1 operand ops

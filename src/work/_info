@@ -22,9 +22,9 @@ V@OfXn9imgN98imbk5DAie1
 !s100 jJ9P2H@Ef1X7mgidNaSoR0
 Z6 OV;C;2019.2;69
 32
-Z7 !s110 1576874318
+Z7 !s110 1576881094
 !i10b 1
-Z8 !s108 1576874317.000000
+Z8 !s108 1576881094.000000
 Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/bit_oring_decoder.vhd|
 Z10 !s107 D:/PDP-2021/src/bit_oring_decoder.vhd|
 !i113 1
@@ -49,7 +49,7 @@ R10
 R11
 R12
 Ecbus
-Z13 w1576879487
+Z13 w1576880981
 R1
 R2
 R3
@@ -61,9 +61,9 @@ V:WRlc>T5W@KMKL@ToF_h^2
 !s100 XJAklGV[d:6>Y06i7gJkR3
 R6
 32
-Z16 !s110 1576879493
+Z16 !s110 1576881092
 !i10b 1
-Z17 !s108 1576879493.000000
+Z17 !s108 1576881092.000000
 Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/bus.vhd|
 Z19 !s107 D:/PDP-2021/src/bus.vhd|
 !i113 1
@@ -73,10 +73,10 @@ Acbusarch
 R1
 R2
 DEx4 work 4 cbus 0 22 :WRlc>T5W@KMKL@ToF_h^2
-l188
+l190
 L17
-V<Afa@k<oPVceQS?9MPzcz0
-!s100 TCeJlKG90OgLST23=R=e<1
+Vg1E:n4bk<6<Ga;e48H6[G1
+!s100 olM1]ze0EfnV<J3o0L8VA1
 R6
 32
 R16
@@ -100,9 +100,9 @@ V_z>Tlf3>BzAK@9[;Bdg`[1
 !s100 l`KSRRMbWli7TBc87I=Qb0
 R6
 32
-Z23 !s110 1576879085
+Z23 !s110 1576881099
 !i10b 1
-Z24 !s108 1576879085.000000
+Z24 !s108 1576881099.000000
 Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/CWDecoder.vhd|
 Z26 !s107 D:/PDP-2021/src/CWDecoder.vhd|
 !i113 1
@@ -139,11 +139,11 @@ VzM;S>5O3G>>4e9mhF4zPQ2
 !s100 :LDf=lW_UUlf[egakWO`62
 R6
 32
-Z30 !s110 1576866856
+R16
 !i10b 1
-Z31 !s108 1576866855.000000
-Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/decoder.vhd|
-Z33 !s107 D:/PDP-2021/src/decoder.vhd|
+R17
+Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/decoder.vhd|
+Z31 !s107 D:/PDP-2021/src/decoder.vhd|
 !i113 1
 R11
 R12
@@ -157,32 +157,32 @@ V7m2@cOC<;EbVNXVGjYOW71
 !s100 1bO`EABW@XRU3E6E0H1hb2
 R6
 32
-R30
+R16
 !i10b 1
+R17
+R30
 R31
-R32
-R33
 !i113 1
 R11
 R12
 Eir_tobus_decoder_entity
-Z34 w1576858898
+Z32 w1576858898
 R1
 R2
 R3
-Z35 8D:/PDP-2021/src/IR_ToBus_Decoder.vhd
-Z36 FD:/PDP-2021/src/IR_ToBus_Decoder.vhd
+Z33 8D:/PDP-2021/src/IR_ToBus_Decoder.vhd
+Z34 FD:/PDP-2021/src/IR_ToBus_Decoder.vhd
 l0
 L6
 VKzPo;N0WPSd8H8bE_`R;_3
 !s100 _oEGMa0:fgkf6P`C;DmZG0
 R6
 32
-Z37 !s110 1576864545
+Z35 !s110 1576881095
 !i10b 1
-Z38 !s108 1576864545.000000
-Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/IR_ToBus_Decoder.vhd|
-Z40 !s107 D:/PDP-2021/src/IR_ToBus_Decoder.vhd|
+Z36 !s108 1576881095.000000
+Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/IR_ToBus_Decoder.vhd|
+Z38 !s107 D:/PDP-2021/src/IR_ToBus_Decoder.vhd|
 !i113 1
 R11
 R12
@@ -196,32 +196,32 @@ VmX>FAgLo:lhhKl4a4DbLa3
 !s100 N@aEn07OZDYjmJ@Oh`^dU0
 R6
 32
-R37
+R35
 !i10b 1
+R36
+R37
 R38
-R39
-R40
 !i113 1
 R11
 R12
 Emux_entity
-Z41 w1576264083
+Z39 w1576264083
 R1
 R2
 R3
-Z42 8D:/PDP-2021/src/mux.vhd
-Z43 FD:/PDP-2021/src/mux.vhd
+Z40 8D:/PDP-2021/src/mux.vhd
+Z41 FD:/PDP-2021/src/mux.vhd
 l0
 L6
 V3FbEB9?dRIgk`;n`m<^PX3
 !s100 Z9D3h=1Hn;;AV9;S?2KmK2
 R6
 32
-Z44 !s110 1576864547
+Z42 !s110 1576881098
 !i10b 1
-Z45 !s108 1576864547.000000
-Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/mux.vhd|
-Z47 !s107 D:/PDP-2021/src/mux.vhd|
+Z43 !s108 1576881098.000000
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/mux.vhd|
+Z45 !s107 D:/PDP-2021/src/mux.vhd|
 !i113 1
 R11
 R12
@@ -235,32 +235,32 @@ Vhhok1jLE`<XSca^?_LKJ<3
 !s100 M<S]Q_nFk?AON[f>9hGk73
 R6
 32
-R44
+R42
 !i10b 1
+R43
+R44
 R45
-R46
-R47
 !i113 1
 R11
 R12
 Emy_adder
-Z48 w1574961824
+Z46 w1574961824
 R1
 R2
 R3
-Z49 8D:/PDP-2021/src/my_adder.vhd
-Z50 FD:/PDP-2021/src/my_adder.vhd
+Z47 8D:/PDP-2021/src/my_adder.vhd
+Z48 FD:/PDP-2021/src/my_adder.vhd
 l0
 L8
 VDMFg>`S88SVz@64cQn=dQ2
 !s100 YOka4R`EL>]^07NIO0AeR2
 R6
 32
-R44
+R23
 !i10b 1
-R45
-Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/my_adder.vhd|
-Z52 !s107 D:/PDP-2021/src/my_adder.vhd|
+R24
+Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/my_adder.vhd|
+Z50 !s107 D:/PDP-2021/src/my_adder.vhd|
 !i113 1
 R11
 R12
@@ -274,32 +274,32 @@ V3^`RjN=U34X<1@1m_TTN?2
 !s100 Ec;;JiHSF_3V8Qd8em5`M3
 R6
 32
-R44
+R23
 !i10b 1
-R45
-R51
-R52
+R24
+R49
+R50
 !i113 1
 R11
 R12
 Emy_nadder
-Z53 w1574962139
+Z51 w1574962139
 R1
 R2
 R3
-Z54 8D:/PDP-2021/src/my_nadder.vhd
-Z55 FD:/PDP-2021/src/my_nadder.vhd
+Z52 8D:/PDP-2021/src/my_nadder.vhd
+Z53 FD:/PDP-2021/src/my_nadder.vhd
 l0
 L5
 V_0YLO4oS[YaOVVW57X9YE3
 !s100 CNSKIk^CiT:m5fS=Ml`@`1
 R6
 32
-R44
+R23
 !i10b 1
-R45
-Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/my_nadder.vhd|
-Z57 !s107 D:/PDP-2021/src/my_nadder.vhd|
+R43
+Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/my_nadder.vhd|
+Z55 !s107 D:/PDP-2021/src/my_nadder.vhd|
 !i113 1
 R11
 R12
@@ -313,32 +313,32 @@ ValG4NnUDl:F:L;AcmUIZ:3
 !s100 HXb_zgjX8P0EdnmdDGlC92
 R6
 32
-R44
+R23
 !i10b 1
-R45
-R56
-R57
+R43
+R54
+R55
 !i113 1
 R11
 R12
 Epalu_decoder_entity
-Z58 w1576858907
+Z56 w1576881049
 R1
 R2
 R3
-Z59 8D:/PDP-2021/src/PALU_Decoder.vhd
-Z60 FD:/PDP-2021/src/PALU_Decoder.vhd
+Z57 8D:/PDP-2021/src/PALU_Decoder.vhd
+Z58 FD:/PDP-2021/src/PALU_Decoder.vhd
 l0
 L6
 VelgmW0R`gK`BB1?83TYGB2
 !s100 4]=<jbg]ZI5MoMXZ159fU2
 R6
 32
-R37
+R35
 !i10b 1
-Z61 !s108 1576864544.000000
-Z62 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/PALU_Decoder.vhd|
-Z63 !s107 D:/PDP-2021/src/PALU_Decoder.vhd|
+R8
+Z59 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/PALU_Decoder.vhd|
+Z60 !s107 D:/PDP-2021/src/PALU_Decoder.vhd|
 !i113 1
 R11
 R12
@@ -348,36 +348,36 @@ R2
 DEx4 work 19 palu_decoder_entity 0 22 elgmW0R`gK`BB1?83TYGB2
 l16
 L14
-V[[T:j@bLICZI[@T?8D>i42
-!s100 i0fQmFK@dQ:?U:0<GLjnK3
+Vbn1j]Ejd=6I1nTTX9>?B30
+!s100 RTjYE09ijE4J<Uz[ZP5PE2
 R6
 32
-R37
+R35
 !i10b 1
-R61
-R62
-R63
+R8
+R59
+R60
 !i113 1
 R11
 R12
 Epalu_entity
-Z64 w1576504232
+Z61 w1576504232
 R1
 R2
 R3
-Z65 8D:/PDP-2021/src/PALU.vhd
-Z66 FD:/PDP-2021/src/PALU.vhd
+Z62 8D:/PDP-2021/src/PALU.vhd
+Z63 FD:/PDP-2021/src/PALU.vhd
 l0
 L5
 V]CE:D7<<L7U1aZaCUn;`m1
 !s100 9bko4jFF?QDLZ?c]8XPgN3
 R6
 32
-R37
+Z64 !s110 1576881096
 !i10b 1
-R38
-Z67 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/PALU.vhd|
-Z68 !s107 D:/PDP-2021/src/PALU.vhd|
+R36
+Z65 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/PALU.vhd|
+Z66 !s107 D:/PDP-2021/src/PALU.vhd|
 !i113 1
 R11
 R12
@@ -391,32 +391,32 @@ VEh^f[GDTTE:g7FJ1`mFAL3
 !s100 F9^BRjAlAbR`NGAfJ65`U0
 R6
 32
-R37
+R64
 !i10b 1
-R38
-R67
-R68
+R36
+R65
+R66
 !i113 1
 R11
 R12
 Epalu_porta_entity
-Z69 w1576496202
+Z67 w1576496202
 R1
 R2
 R3
-Z70 8D:/PDP-2021/src/PALU_PORTA.vhd
-Z71 FD:/PDP-2021/src/PALU_PORTA.vhd
+Z68 8D:/PDP-2021/src/PALU_PORTA.vhd
+Z69 FD:/PDP-2021/src/PALU_PORTA.vhd
 l0
 L4
 VHAe<b:D<P>999hnkV?5?V2
 !s100 45d@<B[j<k[fdDE:JFOT>0
 R6
 32
-Z72 !s110 1576864546
+R64
 !i10b 1
-Z73 !s108 1576864546.000000
-Z74 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/PALU_PORTA.vhd|
-Z75 !s107 D:/PDP-2021/src/PALU_PORTA.vhd|
+Z70 !s108 1576881096.000000
+Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/PALU_PORTA.vhd|
+Z72 !s107 D:/PDP-2021/src/PALU_PORTA.vhd|
 !i113 1
 R11
 R12
@@ -430,32 +430,32 @@ V7MV_PJ;TmXeIJHPQF]4co2
 !s100 9k<7z0^<e0mZC^2e3[?n[1
 R6
 32
-R72
+R64
 !i10b 1
-R73
-R74
-R75
+R70
+R71
+R72
 !i113 1
 R11
 R12
 Epalu_portb_entity
-Z76 w1576493293
+Z73 w1576493293
 R1
 R2
 R3
-Z77 8D:/PDP-2021/src/PALU_PORTB.vhd
-Z78 FD:/PDP-2021/src/PALU_PORTB.vhd
+Z74 8D:/PDP-2021/src/PALU_PORTB.vhd
+Z75 FD:/PDP-2021/src/PALU_PORTB.vhd
 l0
 L4
 VnRZj>AiTW^PSL[XShWOXD0
 !s100 KH27[48V3_ciZ=:EHf22h3
 R6
 32
-R72
+Z76 !s110 1576881097
 !i10b 1
-R73
-Z79 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/PALU_PORTB.vhd|
-Z80 !s107 D:/PDP-2021/src/PALU_PORTB.vhd|
+Z77 !s108 1576881097.000000
+Z78 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/PALU_PORTB.vhd|
+Z79 !s107 D:/PDP-2021/src/PALU_PORTB.vhd|
 !i113 1
 R11
 R12
@@ -469,32 +469,32 @@ V?eDLDg8@8ZhFPITCC3Sc]3
 !s100 G@o5VzBIgRAgPo66iH6VY3
 R6
 32
-R72
+R76
 !i10b 1
-R73
+R77
+R78
 R79
-R80
 !i113 1
 R11
 R12
 Epalu_portc_entity
-Z81 w1576487330
+Z80 w1576487330
 R1
 R2
 R3
-Z82 8D:/PDP-2021/src/PALU_PORTC.vhd
-Z83 FD:/PDP-2021/src/PALU_PORTC.vhd
+Z81 8D:/PDP-2021/src/PALU_PORTC.vhd
+Z82 FD:/PDP-2021/src/PALU_PORTC.vhd
 l0
 L6
 V2oiiQfOZT`0QAH69elbc?2
 !s100 09X1ZO[KLCOFWnTMdDTGl3
 R6
 32
-R72
+R76
 !i10b 1
-R73
-Z84 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/PALU_PORTC.vhd|
-Z85 !s107 D:/PDP-2021/src/PALU_PORTC.vhd|
+R77
+Z83 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/PALU_PORTC.vhd|
+Z84 !s107 D:/PDP-2021/src/PALU_PORTC.vhd|
 !i113 1
 R11
 R12
@@ -508,32 +508,32 @@ VF3jKLU]af5IdGALz7Y86d0
 !s100 _I^P3OkW9H1PV40^j`X4J0
 R6
 32
-R72
+R76
 !i10b 1
-R73
+R77
+R83
 R84
-R85
 !i113 1
 R11
 R12
 Epla_entity
-Z86 w1576873408
+Z85 w1576873408
 R1
 R2
 R3
-Z87 8D:/PDP-2021/src/PLA.vhd
-Z88 FD:/PDP-2021/src/PLA.vhd
+Z86 8D:/PDP-2021/src/PLA.vhd
+Z87 FD:/PDP-2021/src/PLA.vhd
 l0
 L5
 VjkdT6QWK`TMhB_?cd4KB[2
 !s100 9_gM762_nJRnm54KiHQeF3
 R6
 32
-Z89 !s110 1576874108
+R7
 !i10b 1
-Z90 !s108 1576874108.000000
-Z91 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/PLA.vhd|
-Z92 !s107 D:/PDP-2021/src/PLA.vhd|
+Z88 !s108 1576881093.000000
+Z89 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/PLA.vhd|
+Z90 !s107 D:/PDP-2021/src/PLA.vhd|
 !i113 1
 R11
 R12
@@ -547,38 +547,38 @@ V:IY6lECa<59najQMcH?OF1
 !s100 :V@S0cNbWk;=ahYc=9b[b1
 R6
 32
-R89
+R7
 !i10b 1
+R88
+R89
 R90
-R91
-R92
 !i113 1
 R11
 R12
 Eram
-Z93 w1576256996
-Z94 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z91 w1576256996
+Z92 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 R1
 R2
 R3
-Z95 8D:/PDP-2021/src/ram.vhd
-Z96 FD:/PDP-2021/src/ram.vhd
+Z93 8D:/PDP-2021/src/ram.vhd
+Z94 FD:/PDP-2021/src/ram.vhd
 l0
 L5
 VIK0hn`n:DN]Y@E]kSBL2o0
 !s100 9GUgc<BhhcIO2KW>Sn0iZ3
 R6
 32
-Z97 !s110 1576864541
+Z95 !s110 1576864541
 !i10b 1
-Z98 !s108 1576864541.000000
-Z99 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/ram.vhd|
-Z100 !s107 D:/PDP-2021/src/ram.vhd|
+Z96 !s108 1576864541.000000
+Z97 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/ram.vhd|
+Z98 !s107 D:/PDP-2021/src/ram.vhd|
 !i113 1
 R11
 R12
 Asyncrama
-R94
+R92
 R1
 R2
 DEx4 work 3 ram 0 22 IK0hn`n:DN]Y@E]kSBL2o0
@@ -588,32 +588,79 @@ VcGJ2B6B`Ri?Y]]X?i@QL21
 !s100 l[R0n>kHEiP7OR9]ZWW[a0
 R6
 32
-R97
+R95
 !i10b 1
+R96
+R97
 R98
-R99
+!i113 1
+R11
+R12
+Erament
+Z99 w1576879678
+Z100 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
+R92
+Z101 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z102 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R1
+R2
+R3
+R93
+R94
+l0
+L9
+V5WMXHd0h_lD::@jH?f:?03
+!s100 ;P=9L5^3Ie7Gh?EU@=0dl3
+R6
+32
+Z103 !s110 1576881100
+!i10b 1
+Z104 !s108 1576881100.000000
+R97
+R98
+!i113 1
+R11
+R12
+Aramarch
 R100
+R92
+R101
+R102
+R1
+R2
+DEx4 work 6 rament 0 22 5WMXHd0h_lD::@jH?f:?03
+l23
+L20
+V`8K_Rc7<R3]g1]@h?olk;0
+!s100 76GjHWA70hnmAd1A_I__K0
+R6
+32
+R103
+!i10b 1
+R104
+R97
+R98
 !i113 1
 R11
 R12
 Ereg
-Z101 w1576253873
+Z105 w1576253873
 R1
 R2
 R3
-Z102 8D:/PDP-2021/src/register.vhd
-Z103 FD:/PDP-2021/src/register.vhd
+Z106 8D:/PDP-2021/src/register.vhd
+Z107 FD:/PDP-2021/src/register.vhd
 l0
 L4
 V<z_7DJEIY]B7lFd1:Fa`20
 !s100 IEW:dl4I5FkH[=95FQ2n?3
 R6
 32
-R97
+Z108 !s110 1576881093
 !i10b 1
-R98
-Z104 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/register.vhd|
-Z105 !s107 D:/PDP-2021/src/register.vhd|
+R17
+Z109 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/register.vhd|
+Z110 !s107 D:/PDP-2021/src/register.vhd|
 !i113 1
 R11
 R12
@@ -627,32 +674,73 @@ VRg1K6?bUHAB?4VNhzD:Dn0
 !s100 CQ[QOz63TfBCVGFG8_gnI2
 R6
 32
-R97
+R108
 !i10b 1
-R98
+R17
+R109
+R110
+!i113 1
+R11
+R12
+Eroment
+Z111 w1576877190
+R92
+R1
+R2
+R3
+Z112 8D:/PDP-2021/src/rom.vhd
+Z113 FD:/PDP-2021/src/rom.vhd
+l0
+L5
+Vze=bNP@AUOHdA8N]_1OHX3
+!s100 bVhENa8QbzfG18?cah^OB2
+R6
+32
+R103
+!i10b 1
 R104
-R105
+Z114 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/rom.vhd|
+Z115 !s107 D:/PDP-2021/src/rom.vhd|
+!i113 1
+R11
+R12
+Aromarc
+R92
+R1
+R2
+Z116 DEx4 work 6 roment 0 22 ze=bNP@AUOHdA8N]_1OHX3
+l61
+L13
+Z117 VzH[a36k]R[TTQ3<@d=MVk2
+Z118 !s100 GWNf=12oMcWhNgnFB@Ij@2
+R6
+32
+R103
+!i10b 1
+R104
+R114
+R115
 !i113 1
 R11
 R12
 Etristate
-Z106 w1576253812
+Z119 w1576253812
 R1
 R2
 R3
-Z107 8D:/PDP-2021/src/tristate.vhd
-Z108 FD:/PDP-2021/src/tristate.vhd
+Z120 8D:/PDP-2021/src/tristate.vhd
+Z121 FD:/PDP-2021/src/tristate.vhd
 l0
 L3
 VfCNad9o5?IlR`k`>EWVjf2
 !s100 A0A4@N>=>AB=?NQfDMh7:3
 R6
 32
-Z109 !s110 1576864542
+R108
 !i10b 1
-Z110 !s108 1576864542.000000
-Z111 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/tristate.vhd|
-Z112 !s107 D:/PDP-2021/src/tristate.vhd|
+R88
+Z122 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/tristate.vhd|
+Z123 !s107 D:/PDP-2021/src/tristate.vhd|
 !i113 1
 R11
 R12
@@ -666,32 +754,32 @@ VG7hDXhi[0K4M>59XH@1IL2
 !s100 =nTcbjg[zWn4JEm2]5VIN0
 R6
 32
-R109
+R108
 !i10b 1
-R110
-R111
-R112
+R88
+R122
+R123
 !i113 1
 R11
 R12
 Euardecoder
-Z113 w1576870288
+Z124 w1576870288
 R1
 R2
 R3
-Z114 8D:/PDP-2021/src/uARdecoder.vhd
-Z115 FD:/PDP-2021/src/uARdecoder.vhd
+Z125 8D:/PDP-2021/src/uARdecoder.vhd
+Z126 FD:/PDP-2021/src/uARdecoder.vhd
 l0
 L3
 Vao=[WZR7KY5=^GC5VZ3ai2
 !s100 B=XES3Z2=ZddgdFL=4GaN1
 R6
 32
-Z116 !s110 1576870605
+Z127 !s110 1576870605
 !i10b 1
-Z117 !s108 1576870605.000000
-Z118 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/uARdecoder.vhd|
-Z119 !s107 D:/PDP-2021/src/uARdecoder.vhd|
+Z128 !s108 1576870605.000000
+Z129 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/PDP-2021/src/uARdecoder.vhd|
+Z130 !s107 D:/PDP-2021/src/uARdecoder.vhd|
 !i113 1
 R11
 R12
@@ -705,16 +793,16 @@ V^mCF<d3MbC6MlXlWd?O8D0
 !s100 Bj7hZUPzlS2I]@OeACM>m2
 R6
 32
-R116
+R127
 !i10b 1
-R117
-R118
-R119
+R128
+R129
+R130
 !i113 1
 R11
 R12
 Exbus
-Z120 w1576256812
+Z131 w1576256812
 R1
 R2
 R3
@@ -726,9 +814,9 @@ VkbVZ=HkGU>c0T@<KFl23P0
 !s100 2XohI>U1;JQPkGSz_9ez@3
 R6
 32
-Z121 !s110 1576781629
+Z132 !s110 1576781629
 !i10b 1
-Z122 !s108 1576781628.000000
+Z133 !s108 1576781628.000000
 R18
 R19
 !i113 1
@@ -744,9 +832,9 @@ VR`HFm4=2SJHSfY3Ck2Cz=3
 !s100 C?BDBHYZ=SDhMn9UQ]93:0
 R6
 32
-R121
+R132
 !i10b 1
-R122
+R133
 R18
 R19
 !i113 1
