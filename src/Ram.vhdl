@@ -8,15 +8,17 @@ use std.textio.all;
 
 entity RamEnt is
     port(
-            Initial,Clk : in std_logic;
-            PC : in std_logic_vector(7 downto 0);
+            Initial :inout std_logic;
+            Clk,Wr,Re : in std_logic;
+            PC : in std_logic_vector(15 downto 0);
+            DataIn: in std_logic_vector(15 downto 0);
             DataOut : out std_logic_vector(15 downto 0)
         );
 end entity;
 
 
 architecture RamArch of RamEnt is
-type RamType is array (50 downto 0) of std_logic_vector(15 downto 0);
+type RamType is array (4000 downto 0) of std_logic_vector(15 downto 0);
 signal Ram : RamType;
 begin
     process(PC,Clk)
@@ -34,10 +36,16 @@ begin
                 Ram(Count) <= Instruction;
                 Count := Count + 1;
             end loop;
+            Initial <= '0';
             File_Close (F);           
         else       
-            if rising_edge(Clk) then 
-                DataOut<=Ram(to_integer(unsigned((PC))));
+            if rising_edge(Clk) then
+                if Wr = '1' then 
+                    Ram(to_integer(unsigned((PC)))) <= DataIn;
+                end if ;
+                if Re = '1' then 
+                    DataOut<=Ram(to_integer(unsigned((PC))));
+                end if;
             end if;
         end if;
     end process;
