@@ -8,9 +8,10 @@ use std.textio.all;
 
 entity RamEnt is
     port(
-            Initial: inout std_logic ; 
-            Clk : in std_logic;
+            Initial :inout std_logic;
+            Clk,Wr,Re : in std_logic;
             PC : in std_logic_vector(15 downto 0);
+            DataIn: in std_logic_vector(15 downto 0);
             DataOut : out std_logic_vector(15 downto 0)
         );
 end entity;
@@ -38,8 +39,13 @@ begin
             Initial <= '0';
             File_Close (F);           
         else       
-            if rising_edge(Clk) then 
-                DataOut<=Ram(to_integer(unsigned((PC))));
+            if rising_edge(Clk) then
+                if Wr = '1' then 
+                    Ram(to_integer(unsigned((PC)))) <= DataIn;
+                end if ;
+                if Re = '1' then 
+                    DataOut<=Ram(to_integer(unsigned((PC))));
+                end if;
             end if;
         end if;
     end process;
