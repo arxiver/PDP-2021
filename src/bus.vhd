@@ -5,6 +5,7 @@ entity CBUS is
 port(	
 	-- CLOCK FOR WHOLE SYSTEM
 	CLK: in std_logic ;
+	RCLK: in std_logic ;
 	-- RESET BIT FOR EACH REGISTER
 	RESET_R0,RESET_R1,RESET_R2,RESET_R3,RESET_R4,RESET_R5,RESET_R6,RESET_R7  : IN STD_LOGIC ;
 	RESET_Y,RESET_TMP,RESET_MDR,RESET_MAR,RESET_Z : in std_logic ;
@@ -161,10 +162,9 @@ COMPONENT ram IS
 		dataout : OUT std_logic_vector(15 DOWNTO 0));
 END COMPONENT ram;
 
-signal SRC_DECODED_SEL : std_logic_vector (5 downto 0);
-signal DST_DECODED_SEL : std_logic_vector (5 downto 0);
 signal R0_DATA , R1_DATA , R2_DATA , R3_DATA , MDR_DATA , MAR_DATA: std_logic_vector (15 downto 0);
-signal R4_DATA , R5_DATA , R6_DATA , R7_DATA , TEMP_DATA , Y_DATA , Z_DATA , IR_DATA: std_logic_vector (15 downto 0);
+signal R4_DATA , R5_DATA , R6_DATA  , TEMP_DATA , Y_DATA , Z_DATA , IR_DATA: std_logic_vector (15 downto 0);
+signal R7_DATA : std_logic_vector (15 downto 0) :=(others=>'0');
 
 signal CONTROL_WORD : std_logic_vector (24 downto 0);
 signal PCout,MDRout,Zout,TEMPout,IRaddfield,R0out,R1out,R2out,R3out,R4out,R5out,R6out,R7out : std_logic;
@@ -207,22 +207,22 @@ IR_TRI : tristate port map(IR_DATA,BUSdata,'0');
 MDR_TRI : tristate port map(MDR_DATA,BUSdata,MDRout);
 MAR_TRI : tristate port map(MAR_DATA,BUSdata,'0');
 
-R0 : reg port map(CLK,RESET_R0,R0in,BUSdata,R0_DATA);
-R1 : reg port map(CLK,RESET_R1,R1in,BUSdata,R1_DATA);
-R2 : reg port map(CLK,RESET_R2,R2in,BUSdata,R2_DATA);
-R3 : reg port map(CLK,RESET_R3,R3in,BUSdata,R3_DATA);
-R4 : reg port map(CLK,RESET_R4,R4in,BUSdata,R4_DATA);
-R5 : reg port map(CLK,RESET_R5,R5in,BUSdata,R5_DATA);
-R6 : reg port map(CLK,RESET_R6,R6in,BUSdata,R6_DATA);
-R7 : reg port map(CLK,RESET_R7,PCfin,BUSdata,R7_DATA);
+R0 : reg port map(RCLK,RESET_R0,R0in,BUSdata,R0_DATA);
+R1 : reg port map(RCLK,RESET_R1,R1in,BUSdata,R1_DATA);
+R2 : reg port map(RCLK,RESET_R2,R2in,BUSdata,R2_DATA);
+R3 : reg port map(RCLK,RESET_R3,R3in,BUSdata,R3_DATA);
+R4 : reg port map(RCLK,RESET_R4,R4in,BUSdata,R4_DATA);
+R5 : reg port map(RCLK,RESET_R5,R5in,BUSdata,R5_DATA);
+R6 : reg port map(RCLK,RESET_R6,R6in,BUSdata,R6_DATA);
+R7 : reg port map(RCLK,RESET_R7,PCfin,BUSdata,R7_DATA);
 
-RY : reg port map(CLK,RESET_R7,Yin,BUSdata,Y_DATA);
-RZ : reg port map(CLK,RESET_R7,Zin,BUSdata,Z_DATA);
-TEMP : reg port map(CLK,RESET_TMP,TEMPin,BUSdata,TEMP_DATA);
+RY : reg port map(RCLK,RESET_R7,Yin,BUSdata,Y_DATA);
+RZ : reg port map(RCLK,RESET_R7,Zin,BUSdata,Z_DATA);
+TEMP : reg port map(RCLK,RESET_TMP,TEMPin,BUSdata,TEMP_DATA);
 
-IR :  reg port map(CLK,RESET_TMP,IRin,BUSdata,IR_DATA);
-MDR : reg port map(CLK,RESET_MDR,MDRin,MDR_INdata,MDR_DATA);
-MAR : reg port map(CLK,RESET_MAR,MARin,BUSdata,MAR_DATA);
+IR :  reg port map(RCLK,RESET_TMP,IRin,BUSdata,IR_DATA);
+MDR : reg port map(RCLK,RESET_MDR,MDRin,MDR_INdata,MDR_DATA);
+MAR : reg port map(RCLK,RESET_MAR,MARin,BUSdata,MAR_DATA);
 -- EDIT IT - SIGNAL F OUTPUT 
 -- to be added signals
 

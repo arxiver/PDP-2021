@@ -28,6 +28,7 @@ begin
     variable Count : integer:=0;
     variable Instruction : std_logic_vector(15 downto 0);
     begin
+        -- Read file 
         if Initial = '1' then
             File_Open (F,FileName, read_mode);	
             while ((not EndFile (F))) loop
@@ -37,16 +38,15 @@ begin
                 Count := Count + 1;
             end loop;
             Initial <= '0';
-            File_Close (F);           
+            File_Close (F);
+        
         else       
             if rising_edge(Clk) then
-                if Wr = '1' then 
+                if Wr = '1' and Re = '0' then 
                     Ram(to_integer(unsigned((PC)))) <= DataIn;
                 end if ;
-                if Re = '1' then 
-                    DataOut<=Ram(to_integer(unsigned((PC))));
-                end if;
             end if;
         end if;
-    end process;
+    end process; 
+    DataOut<=Ram(to_integer(unsigned((PC)))) when Re = '1' and Wr = '0';
 end RamArch;
