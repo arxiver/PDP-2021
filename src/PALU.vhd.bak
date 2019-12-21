@@ -47,7 +47,7 @@ END COMPONENT;
 --mux component
 --------------------------------------------
 component mux_entity IS
-PORT ( s1,s0 :IN STD_LOGIC ;
+PORT ( s1,s0 IN STD_LOGIC ;
 IN0,IN1,IN2,IN3 : IN std_logic_vector(15 downto 0);
 F : OUT std_logic_vector(15 downto 0));
 END COMPONENT;

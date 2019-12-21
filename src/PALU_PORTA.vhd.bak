@@ -56,7 +56,7 @@ F4: my_nadder GENERIC MAP (16) PORT MAP(B,Zeros,'1',OUT_SUM_B1 ,Temp1); --B+1
 F5: my_nadder GENERIC MAP (16) PORT MAP(Y,Zeros,'1',OUT_SUM_Y1 ,Temp1);--Y+1
 F6: my_nadder GENERIC MAP (16) PORT MAP(B,NEG_1,'1',OUT_SUB_B1 ,Temp1); --B-1
 F7: my_nadder GENERIC MAP (16) PORT MAP(Y,NEG_1,'1',OUT_SUB_Y1 ,Temp1);--Y-1
-F9: my_nadder GENERIC MAP (16) PORT MAP(B,Zeros,Carry,OUT_SUM_BC,Temp1); --B+Carry
+F9: my_nadder GENERIC MAP (16) PORT MAP(B,Zeros,Carry,OUT_SUM_BY,OUT_SUM_BC); --B+Carry
 
 
 process(Y,B,FlagsIn,Sel,Carry,F8,OUT_SUM_BY,OUT_SUM_BC,OUT_SUM_BYC,OUT_SUB_YB,OUT_SUB_YBC,OUT_SUM_B1,OUT_SUM_Y1,OUT_SUB_B1,OUT_SUB_Y1

@@ -30,13 +30,12 @@ port(IR: IN std_logic_vector(15 DOWNTO 0);
 end COMPONENT PLA_Entity;
 
 -- BIT ORING COMPONENT
-
 COMPONENT bit_oring is 
 port (
 oring_bits :in std_logic_vector(2 downto 0);
 address_mod:in std_logic_vector(7 downto 0);
 IR: in std_logic_vector(15 downto 0);
-PLA_input: in std_logic_vector(15 downto 0);
+PLA_input: in std_logic_vector(7 downto 0);
 m_micro_AR : out std_logic_vector(7 downto 0)
 );
 end COMPONENT;
