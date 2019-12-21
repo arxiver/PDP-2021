@@ -21,7 +21,7 @@ architecture RamArch of RamEnt is
 type RamType is array (4000 downto 0) of std_logic_vector(15 downto 0);
 signal Ram : RamType;
 begin
-    process(Clk)
+    process(PC,Clk)
     FILE F : text;
     constant FileName : string :="IR.txt";
     VARIABLE L : line;

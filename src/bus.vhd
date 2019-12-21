@@ -162,6 +162,15 @@ COMPONENT ram IS
 		dataout : OUT std_logic_vector(15 DOWNTO 0));
 END COMPONENT ram;
 
+--Small register component
+COMPONENT SmallRegEnt is
+    port
+    (
+        Clk,Input : in std_logic;
+        Output : out std_logic
+    );
+end COMPONENT;
+
 signal R0_DATA , R1_DATA , R2_DATA , R3_DATA , MDR_DATA , MAR_DATA: std_logic_vector (15 downto 0);
 signal R4_DATA , R5_DATA , R6_DATA  , TEMP_DATA , Y_DATA , Z_DATA , IR_DATA: std_logic_vector (15 downto 0);
 signal R7_DATA : std_logic_vector (15 downto 0) :=(others=>'0');
@@ -188,6 +197,9 @@ signal PCfin , PCfout : std_logic ;
 signal PLA_OUTdata : std_logic_vector (7 downto 0);
 signal uARnew : std_logic_vector (7 downto 0);
 signal INITREAD : std_logic;
+
+signal SmallRegSignal1,SmallRegSignal2,SmallRegSignal3 : std_logic;
+signal RDfen: std_logic;
 begin 
 
 
@@ -218,7 +230,7 @@ R6 : reg port map(RCLK,RESET_R6,R6in,BUSdata,R6_DATA);
 R7 : reg port map(RCLK,RESET_R7,PCfin,BUSdata,R7_DATA);
 
 RY : reg port map(RCLK,RESET_R7,Yin,BUSdata,Y_DATA);
-RZ : reg port map(RCLK,RESET_R7,Zin,BUSdata,Z_DATA);
+RZ : reg port map(RCLK,RESET_Z,Zin,ALU_OUTPUT,Z_DATA);
 TEMP : reg port map(RCLK,RESET_TMP,TEMPin,BUSdata,TEMP_DATA);
 
 IR :  reg port map(RCLK,RESET_TMP,IRin,BUSdata,IR_DATA);
@@ -237,8 +249,8 @@ CW_DECODE : CWDecoder port map(CONTROL_WORD,IR_DATA,PCout=>PCout,MDRout=>MDRout,
 PLA0 : PLA_Entity port map(IR_DATA , PLA_OUTdata);
 BITORING0 : bit_oring port map(CONTROL_WORD(2 downto 0),CONTROL_WORD(24 downto 17),IR_DATA,PLA_OUTdata,uARnew );
 
-MDR_INdata <= MDR_IN_FROM_RAM WHEN ( RDen = '1' and WRen = '0' and MDRin = '0' ) else  BUSdata When MDRin = '1';
-MDR_EN <= MDRin or RDen ;
+MDR_INdata <= MDR_IN_FROM_RAM WHEN ( RDfen = '1' and WRen = '0' and MDRin = '0' ) else  BUSdata When MDRin = '1';
+MDR_EN <= MDRin or RDfen ;
 -- signal initREAD = '1' in begin
 
 RAM0 : RamEnt port map(INITREAD,CLK,WRen,RDen,MAR_DATA,MDR_DATA,MDR_IN_FROM_RAM);
@@ -247,5 +259,8 @@ CONTROL_STORE : RomEnt port map(CLK,uARnew,CONTROL_WORD);
 PCfin <= R7in or PCin;
 PCfout <= R7out or PCout;
 
-
+SmallReg1:SmallRegEnt port map(Clk , RDen , SmallRegSignal1);
+SmallReg2:SmallRegEnt port map(Clk , SmallRegSignal1 , SmallRegSignal2);
+SmallReg3:SmallRegEnt port map(Clk , SmallRegSignal2 , SmallRegSignal3);
+RDfen <= SmallRegSignal3 OR RDen;
 end architecture;
