@@ -3,9 +3,12 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
 -- Loading package NUMERIC_STD
--- Compiling entity ram
--- Compiling architecture syncrama of ram
+-- Loading package std_logic_textio
+-- Compiling entity RamEnt
+-- Compiling architecture RamArch of RamEnt
 
 } {} {}} D:/PDP-2021/src/PALU.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/PALU.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
@@ -71,16 +74,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 
 -- Compiling entity PALU_PORTC_Entity
 -- Compiling architecture PALU_PORTC_Arch of PALU_PORTC_Entity
 
-} {} {}} D:/PDP-2021/src/bus.vhd {0 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/bus.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity CBUS
--- Compiling architecture CBUSARCH of CBUS
-** Error (suppressible): D:/PDP-2021/src/bus.vhd(227): (vcom-1272) Length of formal "PLA_input" is 16; length of actual is 8.
-** Note: D:/PDP-2021/src/bus.vhd(235): VHDL Compiler exiting
-
 } {} {}} D:/PDP-2021/src/mux.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/mux.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
 -- Loading package STANDARD
@@ -88,6 +81,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 
 -- Loading package std_logic_1164
 -- Compiling entity mux_entity
 -- Compiling architecture mux_arch of mux_entity
+
+} {} {}} D:/PDP-2021/src/bit_oring_decoder.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/bit_oring_decoder.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity bit_oring
+-- Compiling architecture arch_bit_oring of bit_oring
 
 } {} {}} D:/PDP-2021/src/my_nadder.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/my_nadder.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
@@ -121,12 +122,13 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 
 -- Compiling entity my_adder
 -- Compiling architecture a_my_adder of my_adder
 
-} {} {}} D:/PDP-2021/src/uARdecoder.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/uARdecoder.vhd
+} {} {}} D:/PDP-2021/src/rom.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/rom.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity uARDecoder
--- Compiling architecture uARDecoderArch of uARDecoder
+-- Loading package NUMERIC_STD
+-- Compiling entity RomEnt
+-- Compiling architecture RomArc of RomEnt
 
 } {} {}}

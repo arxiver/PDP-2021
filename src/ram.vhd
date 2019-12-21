@@ -1,33 +1,52 @@
-LIBRARY IEEE;
-USE IEEE.STD_LOGIC_1164.ALL;
-USE IEEE.numeric_std.all;
+library IEEE;
+use IEEE.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_textio.all;
+use std.textio.all;
 
-ENTITY ram IS
-	PORT(
-		clk : IN std_logic;
-		WRen  : IN std_logic;
-		RDen : IN std_logic;
-		address : IN  std_logic_vector(7 DOWNTO 0);
-		datain  : IN  std_logic_vector(15 DOWNTO 0);
-		dataout : OUT std_logic_vector(15 DOWNTO 0));
-END ENTITY ram;
 
-ARCHITECTURE syncrama OF ram IS
+entity RamEnt is
+    port(
+            Initial :inout std_logic;
+            Clk,Wr,Re : in std_logic;
+            PC : in std_logic_vector(15 downto 0);
+            DataIn: in std_logic_vector(15 downto 0);
+            DataOut : out std_logic_vector(15 downto 0)
+        );
+end entity;
 
-	TYPE ram_type IS ARRAY(0 TO 63) OF std_logic_vector(15 DOWNTO 0);
-	SIGNAL ram : ram_type := (
-	  OTHERS => "0000000000000000"
-	);
 
-	
-	BEGIN
-		PROCESS(clk) IS
-			BEGIN
-				IF rising_edge(clk) THEN  
-					IF WRen = '1' and RDen = '0' THEN
-						ram(to_integer(unsigned(address))) <= datain;
-					END IF;
-				END IF;
-		END PROCESS;
-		dataout <= ram(to_integer(unsigned(address))) WHEN WRen = '0' and RDen = '1' ;
-END syncrama;
+architecture RamArch of RamEnt is
+type RamType is array (4000 downto 0) of std_logic_vector(15 downto 0);
+signal Ram : RamType;
+begin
+    process(PC,Clk)
+    FILE F : text;
+    constant FileName : string :="IR.txt";
+    VARIABLE L : line;
+    variable Count : integer:=0;
+    variable Instruction : std_logic_vector(15 downto 0);
+    begin
+        -- Read file 
+        if Initial = '1' then
+            File_Open (F,FileName, read_mode);	
+            while ((not EndFile (F))) loop
+                readline (F, L);
+                read(L, Instruction);
+                Ram(Count) <= Instruction;
+                Count := Count + 1;
+            end loop;
+            Initial <= '0';
+            File_Close (F);
+        
+        else       
+            if rising_edge(Clk) then
+                if Wr = '1' and Re = '0' then 
+                    Ram(to_integer(unsigned((PC)))) <= DataIn;
+                end if ;
+            end if;
+        end if;
+    end process; 
+    DataOut<=Ram(to_integer(unsigned((PC)))) when Re = '1' and Wr = '0';
+end RamArch;
