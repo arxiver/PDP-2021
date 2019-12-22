@@ -39,6 +39,9 @@ OP <= "00000" WHEN F5 = "00"  			  --ADD operation
  	      ELSE "01101" WHEN F5 = "11"  AND IR(15 downto 12) = "1001"	--AND
  	      ELSE "01110" WHEN F5 = "11"  AND IR(15 downto 12) = "1010"	--OR
  	      ELSE "01111" WHEN F5 = "11"  AND IR(15 downto 12) = "1011"	--XNOR
- 	      ELSE "01001" WHEN F5 = "11"  AND IR(15 downto 12) = "1100";	--CMP
+ 	      ELSE "01001" WHEN F5 = "11"  AND IR(15 downto 12) = "1100"          --CMP
+	      --BRANCH
+    	      ELSE "00000" WHEN F5 = "11"  AND IR(15 downto 12) = "0010" and IR(7) = '0' --ADD
+	      ELSE "00010" WHEN F5 = "11"  AND IR(15 downto 12) = "0010" and IR(7) = '1';
 	     
 END architecture;

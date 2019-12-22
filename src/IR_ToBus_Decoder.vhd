@@ -14,7 +14,7 @@ ARCHITECTURE IR_ToBus_Decoder_Arch OF IR_ToBus_Decoder_Entity IS
 
 BEGIN
 
-Offset <= "00000000" & IR(7 downto 0) WHEN (IR(11 downto 9) = "000")  	--BR
+Offset <= "00000000" & IR(6 downto 0) WHEN (IR(11 downto 9) = "000")  	--BR
 					OR (IR(11 downto 9) = "001" and  Flags(2) = '1') --BEQ
 					OR (IR(11 downto 9) = "010" and  Flags(2) = '0') --BNE
 					OR (IR(11 downto 9) = "011" and  Flags(0) = '0') --BLO

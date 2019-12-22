@@ -21,22 +21,23 @@ PORT   (a, b : IN std_logic_vector(15 DOWNTO 0) ;
              cout : OUT std_logic);
 end component my_nadder;
 
-signal ADDop,ADCop,SUBop,SUBCop,INCBUSop,INCYop,DECBUSop,DECYop,Ybar,Fbuffer : std_logic_vector(15 downto 0);
+signal ADDop,ADCop,SUBop,SUBCop,INCBUSop,INCYop,DECBUSop,DECYop,Ybar,Bbar,Fbuffer : std_logic_vector(15 downto 0);
 signal CoutADD,CoutADC,CoutSUB,CoutSUBC,CoutINCY,CoutINCB,CoutDECY,CoutDECB : std_logic ;
 signal CINbar,CIN : std_logic ;
 begin
 ----------------------------------------------------------------------------------
 CIN <= Flags(0);
 Ybar <= not Y;
+Bbar <= not BUS_DATA;
 CINbar <= not Cin;
 -- ADDop = BUS + Y
 ADDsig : my_nadder port map(BUS_DATA,Y,'0',ADDop,CoutADD);
 -- ADCop = BUS + Y + Carry
 ADCsig : my_nadder port map(BUS_DATA,Y,Cin,ADCop,CoutADC);
 -- SUB = BUS - Y
-SUBsig: my_nadder port map(BUS_DATA,Ybar,'1',SUBop,CoutSUB);
+SUBsig: my_nadder port map(Y,Bbar,'1',SUBop,CoutSUB);
 -- SUBC = BUS - Y - C
-SUBCsig: my_nadder port map(BUS_DATA,Ybar,CINbar,SUBCop,CoutSUBC);
+SUBCsig: my_nadder port map(Y,Bbar,CINbar,SUBCop,CoutSUBC);
 -- INCBUSop = BUS + 1
 INCBUSsig : my_nadder port map(BUS_DATA,(others=>'0'),'1',INCBUSop,CoutINCB);
 -- INCYop = Y + 1
@@ -63,8 +64,8 @@ Fbuffer <= (ADDop)   When S = "000"  -- ADDop
    
     Flags(0) <= CoutADD when  F8 = '1' and S="000" --ADD
     else CoutADC when  F8 = '1' and S = "001" --ADC 
-    else not CoutSUB when F8 = '1' and S = "010"    --SUB
-    else not CoutSUBC when   F8 = '1' and S = "011"  --SUBC
+    else CoutSUB when F8 = '1' and S = "010"    --SUB
+    else CoutSUBC when   F8 = '1' and S = "011"  --SUBC
     else '0' when F8 = '1';	  
 
     F <= Fbuffer;

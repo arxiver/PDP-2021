@@ -10,8 +10,8 @@ port(
 	RESET_R0,RESET_R1,RESET_R2,RESET_R3,RESET_R4,RESET_R5,RESET_R6,RESET_R7  : IN STD_LOGIC ;
 	RESET_Y,RESET_TMP,RESET_MDR,RESET_MAR,RESET_Z : in std_logic ;
 	-- BUS DATA 
-	BUSdata : inout std_logic_vector (15 downto 0);
-	FLAGREG : inout std_logic_vector (15 downto 0)
+	BUSdata : inout std_logic_vector (15 downto 0)
+	--FLAGREG : inout std_logic_vector (15 downto 0)
 	);
 END entity ;
 
@@ -56,12 +56,14 @@ end COMPONENT;
 
 
 -- ALU COMPONENT
-COMPONENT PALU_Entity is     
-port(Y,B,FlagsIn: IN std_logic_vector(15 DOWNTO 0);
-     Sel:IN std_logic_vector(4 downto 0);
-     F8:in std_logic;
-     F,FlagsOut:OUT std_logic_vector(15 DOWNTO 0));
-end COMPONENT PALU_Entity;
+COMPONENT alsu is
+port(Y,B: IN std_logic_vector(15 downto 0);
+S:IN std_logic_vector(4 downto 0);
+F8 : in std_logic;
+Flags :inout std_logic_vector (15 downto 0) := (OTHERS => '0');
+F: OUT std_logic_vector(15 downto 0));
+end COMPONENT alsu;
+
 
 -- IR2BUS DECODER COMPONENT
 COMPONENT IR_ToBus_Decoder_Entity 
@@ -162,19 +164,12 @@ COMPONENT ram IS
 		dataout : OUT std_logic_vector(15 DOWNTO 0));
 END COMPONENT ram;
 
---Small register component
-COMPONENT SmallRegEnt is
-    port
-    (
-        Clk,Input : in std_logic;
-        Output : out std_logic
-    );
-end COMPONENT;
+
 
 signal R0_DATA , R1_DATA , R2_DATA , R3_DATA , MDR_DATA , MAR_DATA: std_logic_vector (15 downto 0);
 signal R4_DATA , R5_DATA , R6_DATA  , TEMP_DATA , Y_DATA , Z_DATA , IR_DATA: std_logic_vector (15 downto 0);
-signal R7_DATA : std_logic_vector (15 downto 0) :=(others=>'0');
-signal Temp66 : std_logic_vector (15 downto 0) :=(others=>'0');
+signal R7_DATA : std_logic_vector (15 downto 0);
+signal Temp66 : std_logic_vector (15 downto 0) ;
 
 signal CONTROL_WORD : std_logic_vector (24 downto 0);
 signal PCout,MDRout,Zout,TEMPout,IRaddfield,R0out,R1out,R2out,R3out,R4out,R5out,R6out,R7out : std_logic;
@@ -189,10 +184,10 @@ signal microAR : std_logic_vector (24 downto 0);
 signal MDR_EN : std_logic ;
 
 signal ALUsel : std_logic_vector (4 downto 0);
-signal FLAGS_DATA : std_logic_vector (15 downto 0);
+signal FLAGS_DATA : std_logic_vector (15 downto 0):=(others=>'0');
 signal OFFSET_BRANCH : std_logic_vector (15 downto 0);
 
-signal PCfin , PCfout : std_logic ;
+signal PCfin , PCfout,F8 : std_logic ;
 
 signal PLA_OUTdata : std_logic_vector (7 downto 0);
 signal uARnew : std_logic_vector (7 downto 0);
@@ -202,6 +197,8 @@ signal SmallRegSignal1,SmallRegSignal2,SmallRegSignal3 : std_logic;
 signal RDfen: std_logic;
 begin 
 
+F8 <= '0' when IR_DATA(15 downto 12) = "0010"
+else IROPR ;
 
 R0_TRI : tristate port map(R0_DATA,BUSdata,R0out);
 R1_TRI : tristate port map(R1_DATA,BUSdata,R1out);
@@ -241,7 +238,7 @@ MAR : reg port map(RCLK,RESET_MAR,MARin,BUSdata,MAR_DATA);
 
 -- ALU SECTION
 ALUDECODER : PALU_Decoder_Entity port map(IR_DATA,CONTROL_WORD(6 downto 5),ALUsel);
-ALU0 : PALU_Entity port map(Y_DATA,BUSdata,FLAGS_DATA,ALUsel,IROPR,ALU_OUTPUT,FLAGS_DATA);
+ALU0 : alsu port map(Y_DATA,BUSdata,ALUsel,F8,FLAGS_DATA,ALU_OUTPUT);
 IR_FIELD_DECODE : IR_ToBus_Decoder_Entity port map(IR_DATA,FLAGS_DATA,OFFSET_BRANCH);
 
 CW_DECODE : CWDecoder port map(CONTROL_WORD,IR_DATA,PCout=>PCout,MDRout=>MDRout,Zout=>Zout,TEMPout=>TEMPout,IRaddfield=>IRaddfield,R0out=>R0out,R1out=>R1out,R2out=>R2out,R3out=>R3out,R4out=>R4out,R5out=>R5out,R6out=>R6out,R7out=>R7out,PCin=>PCin,IRin=>IRin,Zin=>Zin,R0in=>R0in,R1in=>R1in,R2in=>R2in,R3in=>R3in,R4in=>R4in,R5in=>R5in,R6in=>R6in,R7in=>R7in,MARin=>MARin,MDRin=>MDRin,Yin=>Yin,TEMPin=>TEMPin,ADDSIG=>ADDSIG,INCSIG=>INCSIG,DECSIG=>DECSIG,IROPR=>IROPR,RDen=>RDen,WRen=>WRen,ORdst=>ORdst,ORindst=>ORindst,ORinsrc=>ORinsrc,ORresult=>ORresult,PLAout=>PLAout );
