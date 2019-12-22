@@ -16,7 +16,6 @@ begin
 
 process(Y,FlagsIn,Sel,Carry,F8)
 begin
-report "port C";
 FlagsOut(15 DOWNTO 0) <= FlagsIn (15 downto 0);
 
 IF      Sel = "000" then		--shift Right

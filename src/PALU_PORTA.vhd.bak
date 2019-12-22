@@ -63,7 +63,6 @@ process(Y,B,FlagsIn,Sel,Carry,F8,OUT_SUM_BY,OUT_SUM_BC,OUT_SUM_BYC,OUT_SUB_YB,OU
 	,OUT_SUM_BY_Carry,OUT_SUM_BYC_Carry,OUT_SUB_YB_Carry,OUT_SUB_YBC_Carry
 	,XOR_B ,XOR_Carry ,NEG_1,Zeros)
 begin
-report "port A";
 FlagsOut(15 DOWNTO 0) <= FlagsIn (15 downto 0);
 
 IF      Sel = "000" then		--F = B + Y

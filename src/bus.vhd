@@ -234,7 +234,7 @@ RZ : reg port map(RCLK,RESET_Z,Zin,ALU_OUTPUT,Z_DATA);
 TEMP : reg port map(RCLK,RESET_TMP,TEMPin,BUSdata,TEMP_DATA);
 
 IR :  reg port map(RCLK,RESET_TMP,IRin,BUSdata,IR_DATA);
-MDR : reg port map(RCLK,RESET_MDR,MDRin,MDR_INdata,MDR_DATA);
+MDR : reg port map(RCLK,RESET_MDR,MDR_EN,MDR_INdata,MDR_DATA);
 MAR : reg port map(RCLK,RESET_MAR,MARin,BUSdata,MAR_DATA);
 -- EDIT IT - SIGNAL F OUTPUT 
 -- to be added signals
@@ -259,8 +259,8 @@ CONTROL_STORE : RomEnt port map(CLK,uARnew,CONTROL_WORD);
 PCfin <= R7in or PCin;
 PCfout <= R7out or PCout;
 
-SmallReg1:SmallRegEnt port map(Clk , RDen , SmallRegSignal1);
-SmallReg2:SmallRegEnt port map(Clk , SmallRegSignal1 , SmallRegSignal2);
-SmallReg3:SmallRegEnt port map(Clk , SmallRegSignal2 , SmallRegSignal3);
-RDfen <= SmallRegSignal3 OR RDen;
+--SmallReg1:SmallRegEnt port map(Clk , RDen , SmallRegSignal1);
+--SmallReg2:SmallRegEnt port map(Clk , SmallRegSignal1 , SmallRegSignal2);
+--SmallReg3:SmallRegEnt port map(Clk , SmallRegSignal2 , SmallRegSignal3);
+RDfen <= transport RDen after 10 ns;
 end architecture;

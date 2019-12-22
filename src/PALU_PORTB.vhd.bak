@@ -38,7 +38,7 @@ F1: my_nadder GENERIC MAP (16) PORT MAP(Y,XOR_B,'1',SUB_YB,Adder_Carry); --Y-B
 
 process(Y,B,FlagsIn,Sel,Carry,F8,SUB_YB,Adder_Carry)
 begin
-report "port B";
+report "port B"
 FlagsOut(15 DOWNTO 0) <= FlagsIn (15 downto 0);
 
 IF      Sel = "000" then		--F = 0
