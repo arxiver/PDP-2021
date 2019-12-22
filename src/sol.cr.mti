@@ -16,15 +16,13 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Compiling entity halfAdder
 -- Compiling architecture halfAdderArc of halfAdder
 
-} {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/IR_ToBus_Decoder.vhd} {2 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/IR_ToBus_Decoder.vhd}
+} {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/IR_ToBus_Decoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/IR_ToBus_Decoder.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity IR_ToBus_Decoder_Entity
 -- Compiling architecture IR_ToBus_Decoder_Arch of IR_ToBus_Decoder_Entity
-** Warning: C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/IR_ToBus_Decoder.vhd(17): (vcom-1272) Length of expected is 16; length of actual is 15.
-
 
 } {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/ALSU_PORTC.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/ALSU_PORTC.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
@@ -107,13 +105,13 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Compiling entity CWDecoder
 -- Compiling architecture CWDecoderArch of CWDecoder
 
-} {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bus.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bus.vhd}
+} {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bit_oring_decoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bit_oring_decoder.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity CBUS
--- Compiling architecture CBUSARCH of CBUS
+-- Compiling entity bit_oring
+-- Compiling architecture arch_bit_oring of bit_oring
 
 } {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
@@ -122,14 +120,6 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Loading package std_logic_1164
 -- Compiling entity PALU_Entity
 -- Compiling architecture PALU_arch of PALU_Entity
-
-} {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bit_oring_decoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bit_oring_decoder.vhd}
-Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity bit_oring
--- Compiling architecture arch_bit_oring of bit_oring
 
 } {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/mux.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/mux.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
@@ -155,6 +145,15 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Loading package std_logic_arith
 -- Compiling entity fullAdder
 -- Compiling architecture fullAdderArc of fullAdder
+
+} {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/rom.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/rom.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity RomEnt
+-- Compiling architecture RomArc of RomEnt
 
 } {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/Nadder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/Nadder.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015

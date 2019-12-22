@@ -198,6 +198,7 @@ signal RDfen: std_logic;
 begin 
 
 F8 <= '0' when IR_DATA(15 downto 12) = "0010"
+
 else IROPR ;
 
 R0_TRI : tristate port map(R0_DATA,BUSdata,R0out);
