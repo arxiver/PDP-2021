@@ -1,6 +1,7 @@
 m255
 K4
 z2
+!s11e vcom 2019.2 2019.04, Apr 17 2019
 13
 !s112 1.1
 !i10d 8192
@@ -181,7 +182,7 @@ Z36 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bit_oring_decoder.vhd
 Z37 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bit_oring_decoder.vhd
 l0
 L4
-VCQX[8GI49_I^C@WKRIVHd1
+V@OfXn9imgN98imbk5DAie1
 !s100 jJ9P2H@Ef1X7mgidNaSoR0
 R7
 32
@@ -199,7 +200,7 @@ R3
 DEx4 work 9 bit_oring 0 22 CQX[8GI49_I^C@WKRIVHd1
 l16
 L15
-Vn[nS_h;f5cXh=]K>nS<?Q3
+Va?]Bll`8eJS[ffX7[hKa;1
 !s100 <U;X>4CX:d;WTf821AQKY1
 R7
 32
@@ -220,7 +221,7 @@ Z43 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bus.vhd
 Z44 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bus.vhd
 l0
 L4
-VU1LackQE_K9G56P:k227<2
+VX@z<IHn1:_]^@;M`6S6Ge0
 !s100 dNm;W`G;_eR:CZA;^KFAR3
 R7
 32
@@ -259,7 +260,7 @@ Z48 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/CWDecoder.vhd
 Z49 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/CWDecoder.vhd
 l0
 L3
-Vd[^00<1bS7dTY=i[5MX`W3
+V_z>Tlf3>BzAK@9[;Bdg`[1
 !s100 l`KSRRMbWli7TBc87I=Qb0
 R7
 32
@@ -277,7 +278,7 @@ R3
 DEx4 work 9 cwdecoder 0 22 d[^00<1bS7dTY=i[5MX`W3
 l50
 L49
-V29C>:07A6Y<6U?XJdFC830
+V?YE1bCRRYadXOoJ@<RD283
 !s100 ZSb]URH5?];4_AzcK?k<T2
 R7
 32
@@ -298,7 +299,7 @@ Z54 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/decoder.vhd
 Z55 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/decoder.vhd
 l0
 L3
-V]IghBO^nG25haz[9WiK5F0
+VzM;S>5O3G>>4e9mhF4zPQ2
 !s100 :LDf=lW_UUlf[egakWO`62
 R7
 32
@@ -316,7 +317,7 @@ R3
 DEx4 work 9 decoder24 0 22 ]IghBO^nG25haz[9WiK5F0
 l10
 L9
-VzXokO_gOaSLbQhb?@nHoU0
+V7m2@cOC<;EbVNXVGjYOW71
 !s100 1bO`EABW@XRU3E6E0H1hb2
 R7
 32
@@ -419,7 +420,7 @@ Z68 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/IR_ToBus_Decoder.vhd
 Z69 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/IR_ToBus_Decoder.vhd
 l0
 L6
-VSa;PD7<eIVfoXL0dL_Zc?3
+VKzPo;N0WPSd8H8bE_`R;_3
 !s100 _oEGMa0:fgkf6P`C;DmZG0
 R7
 32
@@ -437,7 +438,7 @@ R3
 DEx4 work 23 ir_tobus_decoder_entity 0 22 Sa;PD7<eIVfoXL0dL_Zc?3
 l15
 L13
-Vi@;fHeFXg]>5@Oj;[R?IR3
+VmX>FAgLo:lhhKl4a4DbLa3
 !s100 N@aEn07OZDYjmJ@Oh`^dU0
 R7
 32
@@ -458,7 +459,7 @@ Z73 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/mux.vhd
 Z74 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/mux.vhd
 l0
 L6
-VCj[nDbR;]W3G8M1^[02CG3
+V1fBk;Xh2oFSQNkTQecZd]0
 !s100 3;[gMaP>U4M8:UV:miI@R0
 R7
 32
@@ -476,7 +477,7 @@ R3
 DEx4 work 10 mux_entity 0 22 Cj[nDbR;]W3G8M1^[02CG3
 l16
 L14
-VIXBQ<jfD>RQIK_V5e2QkL3
+Vhhok1jLE`<XSca^?_LKJ<3
 !s100 M<S]Q_nFk?AON[f>9hGk73
 R7
 32
@@ -497,7 +498,7 @@ Z77 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/my_adder.vhd
 Z78 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/my_adder.vhd
 l0
 L8
-VoYfH4lCdzSVd`[HB<K;hQ1
+VDMFg>`S88SVz@64cQn=dQ2
 !s100 YOka4R`EL>]^07NIO0AeR2
 R7
 32
@@ -515,7 +516,7 @@ R3
 DEx4 work 8 my_adder 0 22 oYfH4lCdzSVd`[HB<K;hQ1
 l15
 L13
-VeWk1Qh6^>f_C6TEf1:cNf1
+V3^`RjN=U34X<1@1m_TTN?2
 !s100 Ec;;JiHSF_3V8Qd8em5`M3
 R7
 32
@@ -575,7 +576,7 @@ Z87 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU_Decoder.vhd
 Z88 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU_Decoder.vhd
 l0
 L6
-V]0DnUnPb^`P4V3;zUlOM32
+VelgmW0R`gK`BB1?83TYGB2
 !s100 4]=<jbg]ZI5MoMXZ159fU2
 R7
 32
@@ -593,7 +594,7 @@ R3
 DEx4 work 19 palu_decoder_entity 0 22 ]0DnUnPb^`P4V3;zUlOM32
 l16
 L14
-VjT[OF:AYU9l@0G7Te?kHb3
+VHJ_1aE8DD7^0FoGLzlPmE2
 !s100 oQWV_lT69b3zQ6ljZBe?[1
 R7
 32
@@ -614,7 +615,7 @@ Z94 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU.vhd
 Z95 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU.vhd
 l0
 L5
-V>;UT4Y2:A28cmWnMoKH;82
+V]CE:D7<<L7U1aZaCUn;`m1
 !s100 9bko4jFF?QDLZ?c]8XPgN3
 R7
 32
@@ -632,7 +633,7 @@ R3
 DEx4 work 11 palu_entity 0 22 >;UT4Y2:A28cmWnMoKH;82
 l62
 L13
-V03^=^>F1E]FJmgi3nT]^W2
+VOPhl8oEiHdCECPb`^JTcQ2
 !s100 zzEfQiB4XbI7M1N^82jCd2
 R7
 32
@@ -653,7 +654,7 @@ Z99 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU_PORTA.vhd
 Z100 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU_PORTA.vhd
 l0
 L4
-VnW@fmKcA@m>S73cS[6f1S3
+VHAe<b:D<P>999hnkV?5?V2
 !s100 45d@<B[j<k[fdDE:JFOT>0
 R7
 32
@@ -692,7 +693,7 @@ Z104 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU_PORTB.vhd
 Z105 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU_PORTB.vhd
 l0
 L4
-VTWNCDJE]m5mF;VhG]BjcP3
+VnRZj>AiTW^PSL[XShWOXD0
 !s100 KH27[48V3_ciZ=:EHf22h3
 R7
 32
@@ -731,7 +732,7 @@ Z109 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU_PORTC.vhd
 Z110 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU_PORTC.vhd
 l0
 L6
-VRdcZaN9KRFH22^FBJWPe`2
+V2oiiQfOZT`0QAH69elbc?2
 !s100 09X1ZO[KLCOFWnTMdDTGl3
 R7
 32
@@ -934,7 +935,7 @@ Z134 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PLA.vhd
 Z135 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PLA.vhd
 l0
 L5
-VZGPIZ:G]kd[PO6aHQ4zj40
+VjkdT6QWK`TMhB_?cd4KB[2
 !s100 9_gM762_nJRnm54KiHQeF3
 R7
 32
@@ -952,7 +953,7 @@ R3
 DEx4 work 10 pla_entity 0 22 ZGPIZ:G]kd[PO6aHQ4zj40
 l12
 L11
-VM=JXfPa6oDX8AJMg3ZDE?3
+V:IY6lECa<59najQMcH?OF1
 !s100 :V@S0cNbWk;=ahYc=9b[b1
 R7
 32
@@ -971,13 +972,14 @@ Z141 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 R1
 Z142 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 R2
+Z105 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 R3
 R4
 Z143 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/ram.vhd
 Z144 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/ram.vhd
 l0
 L9
-VJm1mOd5DV6dZRJ3N?B@lk2
+V5WMXHd0h_lD::@jH?f:?03
 !s100 ;P=9L5^3Ie7Gh?EU@=0dl3
 R7
 32
@@ -999,7 +1001,7 @@ R3
 DEx4 work 6 rament 0 22 Jm1mOd5DV6dZRJ3N?B@lk2
 l23
 L20
-Vf_FoLb90mV5a8`jnfV^Ze3
+VbkVaLlW`9aSBiKE`JdDEX0
 !s100 VMl><XSQMPb5=0_aZ@P5`1
 R7
 32
@@ -1020,7 +1022,7 @@ Z147 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/register.vhd
 Z148 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/register.vhd
 l0
 L4
-V=m3MEDVJzoFcYT9cIN9MT3
+V<z_7DJEIY]B7lFd1:Fa`20
 !s100 IEW:dl4I5FkH[=95FQ2n?3
 R7
 32
@@ -1038,7 +1040,7 @@ R3
 DEx4 work 3 reg 0 22 =m3MEDVJzoFcYT9cIN9MT3
 l15
 L14
-VQX?;lclQ5^_cYQd0O4Bkm1
+VK6X>SDnij3lkXhOY=jf`h2
 !s100 @Egml7^dO;n4Kb^6hYFHB3
 R7
 32
@@ -1060,7 +1062,7 @@ Z151 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/rom.vhd
 Z152 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/rom.vhd
 l0
 L5
-VXc]C1>fPl>^IkGa9c@Smk1
+Vze=bNP@AUOHdA8N]_1OHX3
 !s100 bVhENa8QbzfG18?cah^OB2
 R7
 32
@@ -1079,7 +1081,7 @@ R3
 DEx4 work 6 roment 0 22 Xc]C1>fPl>^IkGa9c@Smk1
 l61
 L13
-Vl_SoV8j6kSOZ8n<l^Jn0N2
+VzH[a36k]R[TTQ3<@d=MVk2
 !s100 GWNf=12oMcWhNgnFB@Ij@2
 R7
 32
@@ -1100,7 +1102,7 @@ Z156 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/SmallReg.vhd
 Z157 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/SmallReg.vhd
 l0
 L5
-VO5N:OAmcaUm]5ofe6__EO3
+VchhIOBUHKQVVnScb3=TXm1
 !s100 Y>c@7o=1PfRXH:a=SYl4^3
 R7
 32
@@ -1139,7 +1141,7 @@ Z160 8C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/tristate.vhd
 Z161 FC:/Users/Reham/Desktop/arch project/main/PDP-2021/src/tristate.vhd
 l0
 L3
-VUzJQc^DVC25K2iF:o_NYe3
+VfCNad9o5?IlR`k`>EWVjf2
 !s100 A0A4@N>=>AB=?NQfDMh7:3
 R7
 32
@@ -1157,7 +1159,7 @@ R3
 DEx4 work 8 tristate 0 22 UzJQc^DVC25K2iF:o_NYe3
 l12
 L11
-V1eATW6:=On1HN;4]5D@8_3
+VG7hDXhi[0K4M>59XH@1IL2
 !s100 =nTcbjg[zWn4JEm2]5VIN0
 R7
 32

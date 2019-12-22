@@ -207,6 +207,22 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Compiling entity PALU_PORTB_Entity
 -- Compiling architecture PALU_PORTB_Arch of PALU_PORTB_Entity
 
+} {} {}} D:/PDP-2021/src/register.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/register.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity reg
+-- Compiling architecture regarc of reg
+
+} {} {}} D:/PDP-2021/src/my_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/my_adder.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity my_adder
+-- Compiling architecture a_my_adder of my_adder
+
 } {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/ram.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/ram.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
@@ -235,6 +251,15 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Loading package std_logic_arith
 -- Compiling entity partA
 -- Compiling architecture partAarc of partA
+
+} {} {}} D:/PDP-2021/src/rom.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/PDP-2021/src/rom.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2019.2 Compiler 2019.04 Apr 17 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity RomEnt
+-- Compiling architecture RomArc of RomEnt
 
 } {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU_PORTC.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PALU_PORTC.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
