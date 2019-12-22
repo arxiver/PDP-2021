@@ -414,11 +414,11 @@ def preAssembler(assembly):
     
     for i in range(len(pdp_assembly)):
         if(pdp_assembly[i] in variables_names):            
-            pdp_assembly[i]=str(variabels_name_address[pdp_assembly[i]]-i+1)
+            pdp_assembly[i]=str(variabels_name_address[pdp_assembly[i]]-i-1)
             continue        
         findlabel = [x for x in labels_name if x in pdp_assembly[i]]
         if(len(findlabel)>0):
-            pdp_assembly[i]=pdp_assembly[i].split()[0]+" "+str(labels_name_address[findlabel[0]]-i+1)
+            pdp_assembly[i]=pdp_assembly[i].split()[0]+" "+str(labels_name_address[findlabel[0]]-i)
     return pdp_assembly        
             
             
