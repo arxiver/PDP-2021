@@ -32,15 +32,15 @@ def oneoperand_opcode_map_append():
     
 
 def twooperands_opcode_map_append():
-    Assembly_opcode_map["MOV"]  = "0100" # 4 in octal
-    Assembly_opcode_map["CMP"]  = "0101" # 5 in octal
-    Assembly_opcode_map["ADD"]  = "0110" # 6 in octal 
-    Assembly_opcode_map["SUB"]  = "0111" # 7 in octal
-    Assembly_opcode_map["ADC"]  = "1000" # 8 in octal
-    Assembly_opcode_map["SBC"]  = "1001" # 9 in octal
-    Assembly_opcode_map["AND"]  = "1010" # 10 in octal
-    Assembly_opcode_map["OR"]   = "1011" # 11 in octal
-    Assembly_opcode_map["XNOR"] = "1100" # 12 in octal
+    Assembly_opcode_map["MOV"]  = "0100" # 4 in Decimal
+    Assembly_opcode_map["ADD"]  = "0101" # 5 in Decimal
+    Assembly_opcode_map["ADC"]  = "0110" # 6 in Decimal 
+    Assembly_opcode_map["SUB"]  = "0111" # 7 in Decimal
+    Assembly_opcode_map["SBC"]  = "1000" # 8 in Decimal
+    Assembly_opcode_map["AND"]  = "1001" # 9 in Decimal
+    Assembly_opcode_map["OR"]   = "1010" # 10 in Decimal
+    Assembly_opcode_map["XNOR"] = "1011" # 11 in Decimal
+    Assembly_opcode_map["CMP"]  = "1100" # 12 in Decimal
 
 
 def branching_opcode_map_append():
@@ -63,77 +63,77 @@ def jump_opcode_map_append():
 
 
 def registers_adressing_modes_map_append():    
-    Assembly_opcode_map["R0"] = "000000" 
-    Assembly_opcode_map["(R0)+"] = "010000"
-    Assembly_opcode_map["-(R0)"] = "100000" 
-    Assembly_opcode_map["X(R0)"] = "110000"
-    Assembly_opcode_map["@R0"] = "001000"
-    Assembly_opcode_map["@(R0)+"] = "011000"
-    Assembly_opcode_map["@-(R0)"] = "101000"
-    Assembly_opcode_map["@X(R0)"] = "111000"
+    Assembly_opcode_map["R0"]       = "000000" 
+    Assembly_opcode_map["(R0)+"]    = "001000"
+    Assembly_opcode_map["-(R0)"]    = "010000" 
+    Assembly_opcode_map["X(R0)"]    = "011000"
+    Assembly_opcode_map["@R0"]      = "100000"
+    Assembly_opcode_map["@(R0)+"]   = "101000"
+    Assembly_opcode_map["@-(R0)"]   = "110000"
+    Assembly_opcode_map["@X(R0)"]   = "111000"
     ###########################################################
-    Assembly_opcode_map["R1"] = "000001" 
-    Assembly_opcode_map["(R1)+"] = "010001"
-    Assembly_opcode_map["-(R1)"] = "100001" 
-    Assembly_opcode_map["X(R1)"] = "110001"
-    Assembly_opcode_map["@R1"] = "001001"
-    Assembly_opcode_map["@(R1)+"] = "011001"
-    Assembly_opcode_map["@-(R1)"] = "101001"
-    Assembly_opcode_map["@X(R1)"] = "111001"
+    Assembly_opcode_map["R1"]       = "000001" 
+    Assembly_opcode_map["(R1)+"]    = "001001"
+    Assembly_opcode_map["-(R1)"]    = "010001" 
+    Assembly_opcode_map["X(R1)"]    = "011001"
+    Assembly_opcode_map["@R1"]      = "100001"
+    Assembly_opcode_map["@(R1)+"]   = "101001"
+    Assembly_opcode_map["@-(R1)"]   = "110001"
+    Assembly_opcode_map["@X(R1)"]   = "111001"
     ###########################################################
-    Assembly_opcode_map["R2"] = "000010" 
-    Assembly_opcode_map["(R2)+"] = "010010"
-    Assembly_opcode_map["-(R2)"] = "100010" 
-    Assembly_opcode_map["X(R2)"] = "110010"
-    Assembly_opcode_map["@R2"] = "001010"
-    Assembly_opcode_map["@(R2)+"] = "011010"
-    Assembly_opcode_map["@-(R2)"] = "101010"
-    Assembly_opcode_map["@X(R2)"] = "111010"
+    Assembly_opcode_map["R2"]       = "000010" 
+    Assembly_opcode_map["(R2)+"]    = "001010"
+    Assembly_opcode_map["-(R2)"]    = "010010" 
+    Assembly_opcode_map["X(R2)"]    = "011010"
+    Assembly_opcode_map["@R2"]      = "100010"
+    Assembly_opcode_map["@(R2)+"]   = "101010"
+    Assembly_opcode_map["@-(R2)"]   = "110010"
+    Assembly_opcode_map["@X(R2)"]   = "111010"
     ################################################################
-    Assembly_opcode_map["R3"] = "000011" 
-    Assembly_opcode_map["(R3)+"] = "010011"
-    Assembly_opcode_map["-(R3)"] = "100011" 
-    Assembly_opcode_map["X(R3)"] = "110011"
-    Assembly_opcode_map["@R3"] = "001011"
-    Assembly_opcode_map["@(R3)+"] = "011011"
-    Assembly_opcode_map["@-(R3)"] = "101011"
-    Assembly_opcode_map["@X(R3)"] = "111011"
+    Assembly_opcode_map["R3"]       = "000011" 
+    Assembly_opcode_map["(R3)+"]    = "001011"
+    Assembly_opcode_map["-(R3)"]    = "010011" 
+    Assembly_opcode_map["X(R3)"]    = "011011"
+    Assembly_opcode_map["@R3"]      = "100011"
+    Assembly_opcode_map["@(R3)+"]   = "101011"
+    Assembly_opcode_map["@-(R3)"]   = "110011"
+    Assembly_opcode_map["@X(R3)"]   = "111011"
     ########################################################
-    Assembly_opcode_map["R4"] = "000100" 
-    Assembly_opcode_map["(R4)+"] = "010100"
-    Assembly_opcode_map["-(R4)"] = "100100" 
-    Assembly_opcode_map["X(R4)"] = "110100"
-    Assembly_opcode_map["@R4"] = "001100"
-    Assembly_opcode_map["@(R4)+"] = "011100"
-    Assembly_opcode_map["@-(R4)"] = "101100"
-    Assembly_opcode_map["@X(R4)"] = "111100"
+    Assembly_opcode_map["R4"]       = "000100" 
+    Assembly_opcode_map["(R4)+"]    = "001100"
+    Assembly_opcode_map["-(R4)"]    = "010100" 
+    Assembly_opcode_map["X(R4)"]    = "011100"
+    Assembly_opcode_map["@R4"]      = "100100"
+    Assembly_opcode_map["@(R4)+"]   = "101100"
+    Assembly_opcode_map["@-(R4)"]   = "110100"
+    Assembly_opcode_map["@X(R4)"]   = "111100"
     ########################################################
-    Assembly_opcode_map["R5"] = "000101" 
-    Assembly_opcode_map["(R5)+"] = "010101"
-    Assembly_opcode_map["-(R5)"] = "100101" 
-    Assembly_opcode_map["X(R5)"] = "110101"
-    Assembly_opcode_map["@R5"] = "001101"
-    Assembly_opcode_map["@(R5)+"] = "011101"
-    Assembly_opcode_map["@-(R5)"] = "101101"
-    Assembly_opcode_map["@X(R5)"] = "111101"
+    Assembly_opcode_map["R5"]       = "000101" 
+    Assembly_opcode_map["(R5)+"]    = "001101"
+    Assembly_opcode_map["-(R5)"]    = "010101" 
+    Assembly_opcode_map["X(R5)"]    = "011101"
+    Assembly_opcode_map["@R5"]      = "100101"
+    Assembly_opcode_map["@(R5)+"]   = "101101"
+    Assembly_opcode_map["@-(R5)"]   = "110101"
+    Assembly_opcode_map["@X(R5)"]   = "111101"
     ##############################################################
-    Assembly_opcode_map["R6"] = "000110" 
-    Assembly_opcode_map["(R6)+"] = "010110"
-    Assembly_opcode_map["-(R6)"] = "100110" 
-    Assembly_opcode_map["X(R6)"] = "110110"
-    Assembly_opcode_map["@R6"] = "001110"
-    Assembly_opcode_map["@(R6)+"] = "011110"
-    Assembly_opcode_map["@-(R6)"] = "101110"
-    Assembly_opcode_map["@X(R6)"] = "111110"
+    Assembly_opcode_map["R6"]       = "000110" 
+    Assembly_opcode_map["(R6)+"]    = "001110"
+    Assembly_opcode_map["-(R6)"]    = "010110" 
+    Assembly_opcode_map["X(R6)"]    = "011110"
+    Assembly_opcode_map["@R6"]      = "100110"
+    Assembly_opcode_map["@(R6)+"]   = "101110"
+    Assembly_opcode_map["@-(R6)"]   = "110110"
+    Assembly_opcode_map["@X(R6)"]   = "111110"
     ###############################################################
-    Assembly_opcode_map["R7"] = "000111" 
-    Assembly_opcode_map["(R7)+"] = "010111"
-    Assembly_opcode_map["-(R7)"] = "100111" 
-    Assembly_opcode_map["X(R7)"] = "110111"
-    Assembly_opcode_map["@R7"] = "001111"
-    Assembly_opcode_map["@(R7)+"] = "011111"
-    Assembly_opcode_map["@-(R7)"] = "101111"
-    Assembly_opcode_map["@X(R7)"] = "111111"
+    Assembly_opcode_map["R7"]       = "000111" 
+    Assembly_opcode_map["(R7)+"]    = "001111"
+    Assembly_opcode_map["-(R7)"]    = "010111" 
+    Assembly_opcode_map["X(R7)"]    = "011111"
+    Assembly_opcode_map["@R7"]      = "100111"
+    Assembly_opcode_map["@(R7)+"]   = "101111"
+    Assembly_opcode_map["@-(R7)"]   = "110111"
+    Assembly_opcode_map["@X(R7)"]   = "111111"
     
 
 # Filling the list of each category of operation
@@ -238,7 +238,7 @@ def number_convert(line):
 #retrun array of strings (assembly lines)
 def readInputFile():
     #read from input file
-    myfile=open("input.txt", "r")
+    myfile=open("Test1.asm", "r")
     #contents will be array of lines from assembly
     contents=myfile.readlines()
     # a directory to store key:value pairs
@@ -351,7 +351,13 @@ def getVariablesNames(assembly):
         else :
             break
     return variables_list
-        
+ 
+def isInteger(mystring):
+    try: 
+        int(mystring)
+        return True
+    except ValueError:
+        return False       
     
 def preAssembler(assembly):
     variables_names=getVariablesNames(assembly)
@@ -360,6 +366,8 @@ def preAssembler(assembly):
     variabels_name_address={}
     pdp_assembly=[]    
     for line in assembly:
+        if line=="NOP":
+            continue        
         matches = [x for x in variables_names if x+',' in line or ' '+x in line]
         if(len(re.findall(",", line))==1):#two operand instructions
             if(len(re.findall('#',line))==1 and len(matches)==1):#immediate value and variable
@@ -391,7 +399,104 @@ def preAssembler(assembly):
                     pdp_assembly.append(op1)
                 else:
                     pdp_assembly.append(opcode+" "+op1+ ", X(R7)")
-                    pdp_assembly.append(op2)   
+                    pdp_assembly.append(op2)  
+            elif(isInteger(line.split()[1].replace(',','')) and isInteger(line.split()[2])):#two variables
+                opcode=line.split()[0]
+                add1=line.split()[1].replace(',','')
+                add2=line.split()[2]
+                pdp_assembly.append(opcode+" @(R7)+, "+"@(R7)+")
+                pdp_assembly.append(add1)
+                pdp_assembly.append(add2)
+                
+            elif(isInteger(line.split()[1].replace(',',''))):
+                opcode=line.split()[0]
+                add1=line.split()[1].replace(',','')
+                dis=line.split()[2]
+                pdp_assembly.append(opcode+" @(R7)+, "+dis)
+                pdp_assembly.append(add1)
+                
+            elif(isInteger(line.split()[2].replace(',',''))):
+                opcode=line.split()[0]
+                add1=line.split()[2].replace(',','')
+                src=line.split()[1].replace(',','')
+                pdp_assembly.append(opcode+" "+src+", @(R7)+")
+                pdp_assembly.append(add1)
+                
+            elif(isInteger(line.split()[2])):
+                opcode=line.split()[0]
+                add1=line.split()[1].replace(',','')
+                dis=line.split()[2]
+                pdp_assembly.append(opcode+" @(R7)+, "+dis)
+                pdp_assembly.append(add1)  
+                
+            elif(isInteger(line.split()[1][1]) and isInteger(line.split()[2][1]) and line.split()[2][0]=='@' and line.split()[1][0]=='@'):
+                opcode=line.split()[0]
+                add1=line.split()[1].split('(')[0].replace('@','')
+                add2=line.split()[2].split('(')[0].replace('@','')
+                disop1=line.split()[1][line.split()[1].find("(")+1:line.split()[1].find(")")]
+                disop2=line.split()[2][line.split()[2].find("(")+1:line.split()[2].find(")")]
+                pdp_assembly.append(opcode+" @X("+disop1+"),"+" @X("+disop2+")")
+                pdp_assembly.append(add1)
+                pdp_assembly.append(add2)
+            elif(isInteger(line.split()[1][1]) and line.split()[1][0]=='@' and not isInteger(line.split()[2].split('(')[0])):
+                opcode=line.split()[0]
+                add1=line.split()[1].split('(')[0].replace('@','')             
+                dst=line.split()[2]   
+                disop1=line.split()[1][line.split()[1].find("(")+1:line.split()[1].find(")")]                
+                pdp_assembly.append(opcode+" @X("+disop1+"), "+dst)
+                pdp_assembly.append(add1)                
+            elif(isInteger(line.split()[2][1]) and line.split()[2][0]=='@' and not isInteger(line.split()[1].split('(')[0])):
+                opcode=line.split()[0]
+                src=line.split()[1].replace(',','')
+                add2=line.split()[2].split('(')[0].replace('@','')                
+                disop2=line.split()[2][line.split()[2].find("(")+1:line.split()[2].find(")")]
+                pdp_assembly.append(opcode+" "+src+", @X("+disop2+")")                
+                pdp_assembly.append(add2)
+            #################################################################################            
+            elif(isInteger(line.split()[1].split('(')[0]) and isInteger(line.split()[2].split('(')[0])):
+                opcode=line.split()[0]
+                add1=line.split()[1].split('(')[0]
+                add2=line.split()[2].split('(')[0]
+                disop1=line.split()[1][line.split()[1].find("(")+1:line.split()[1].find(")")]
+                disop2=line.split()[2][line.split()[2].find("(")+1:line.split()[2].find(")")]
+                pdp_assembly.append(opcode+" X("+disop1+"),"+" X("+disop2+")")
+                pdp_assembly.append(add1)
+                pdp_assembly.append(add2)
+            elif(isInteger(line.split()[1].split('(')[0])  and not((line.split()[2][1]) and line.split()[2][0]=='@')):
+                opcode=line.split()[0]
+                add1=line.split()[1].split('(')[0].replace('@','')             
+                dst=line.split()[2]   
+                disop1=line.split()[1][line.split()[1].find("(")+1:line.split()[1].find(")")]                
+                pdp_assembly.append(opcode+" X("+disop1+"), "+dst)
+                pdp_assembly.append(add1)                
+            elif(isInteger(line.split()[2].split('(')[0]) and not ((line.split()[1][1]) and line.split()[1][0]=='@')):
+                opcode=line.split()[0]
+                src=line.split()[1].replace(',','')
+                add2=line.split()[2].split('(')[0]              
+                disop2=line.split()[2][line.split()[2].find("(")+1:line.split()[2].find(")")]
+                pdp_assembly.append(opcode+" "+src+", X("+disop2+")")                
+                pdp_assembly.append(add2)
+            ####################################################################   
+            elif(isInteger(line.split()[1].split('(')[0]) and isInteger(isInteger(line.split()[2][1])) and line.split()[2][0]=='@'):
+                opcode=line.split()[0]
+                add1=line.split()[1].split('(')[0]
+                add2=line.split()[2].split('(')[0].replace('@','')
+                disop1=line.split()[1][line.split()[1].find("(")+1:line.split()[1].find(")")]
+                disop2=line.split()[2][line.split()[2].find("(")+1:line.split()[2].find(")")]
+                pdp_assembly.append(opcode+" X("+disop1+"),"+" @X("+disop2+")")
+                pdp_assembly.append(add1)
+                pdp_assembly.append(add2)
+            elif(isInteger(line.split()[2].split('(')[0]) and isInteger(isInteger(line.split()[1][1])) and line.split()[1][0]=='@'):
+                opcode=line.split()[0]
+                add1=line.split()[1].split('(')[0].replace('@','')
+                add2=line.split()[2].split('(')[0]
+                disop1=line.split()[1][line.split()[1].find("(")+1:line.split()[1].find(")")]
+                disop2=line.split()[2][line.split()[2].find("(")+1:line.split()[2].find(")")]
+                pdp_assembly.append(opcode+" @X("+disop1+"),"+" X("+disop2+")")
+                pdp_assembly.append(add1)
+                pdp_assembly.append(add2)
+            ##################################################################################
+                
             else:#this means normal mode line opcode R1,R2 or whatever
                 pdp_assembly.append(line)
         elif line.split()[0] in One_operand_opcodes:#this means one operand instruction
@@ -400,6 +505,18 @@ def preAssembler(assembly):
             if(dst in matches):#this means variable
                 pdp_assembly.append(opcode+' X(R7)')
                 pdp_assembly.append(dst)
+            elif(isInteger(line.split()[1][1]) and line.split()[1][0]=='@'):
+                opcode=line.split()[0]
+                add1=line.split()[1].split('(')[0].replace('@','') 
+                disop1=line.split()[1][line.split()[1].find("(")+1:line.split()[1].find(")")]                
+                pdp_assembly.append(opcode+" @X("+disop1+")")
+                pdp_assembly.append(add1)
+            elif(isInteger(line.split()[1].split('(')[0])):  
+                opcode=line.split()[0]
+                add1=line.split()[1].split('(')[0].replace('@','')
+                disop1=line.split()[1][line.split()[1].find("(")+1:line.split()[1].find(")")]                
+                pdp_assembly.append(opcode+" X("+disop1+")")
+                pdp_assembly.append(add1) 
             else:
                 pdp_assembly.append(line)
         elif(len(re.findall(':',line))==1):#this means a label i will save the address and the name
@@ -409,12 +526,15 @@ def preAssembler(assembly):
         elif(len(re.findall('DEFINE',line))==1):#this means variable address
             variabels_name_address[line.split()[1]]=len(pdp_assembly)
             pdp_assembly.append(line.split()[2])
+        elif(line.split()[0][0]=="#"):
+            number=line.replace('#',"")
+            pdp_assembly.append(number)
         else:
             pdp_assembly.append(line)
     
     for i in range(len(pdp_assembly)):
         if(pdp_assembly[i] in variables_names):            
-            pdp_assembly[i]=str(variabels_name_address[pdp_assembly[i]]-i-2)
+            pdp_assembly[i]=str(variabels_name_address[pdp_assembly[i]]-i-1)
             continue        
         findlabel = [x for x in labels_name if x in pdp_assembly[i]]
         if(len(findlabel)>0):
@@ -469,9 +589,9 @@ if __name__ == "__main__":
     #write the opcode out to a file
     writeOutputFile()
 
-    # for i in assemblylines:
-    #     print(i)
-    #print(Opcode_assembly_out)
+    for i in assemblylines:
+        print(i)
+    print(Opcode_assembly_out)
 
 
 
