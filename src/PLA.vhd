@@ -12,7 +12,8 @@ architecture PLA_Arch of PLA_Entity is
 begin
 PLAPROCESS: process (IR)
 begin
-if (IR(15 downto 12) = "0000") then F <= "01000000" ; --no operand instruction
+if (IR = "0000000000000001") then F <= "00000000" ; --no operand instruction
+elsif (IR = "0000000000000000") then F <= "00001010"; --HLT
 elsif (IR(15 downto 12)= "0010") then F <= "00101000"; --Branch instruction #050
 --one operand instruction
 elsif (IR(15 downto 12)= "0001" and IR(4 downto 3)="01")  then F <= "10010001";

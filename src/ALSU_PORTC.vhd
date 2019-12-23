@@ -2,6 +2,7 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.std_logic_arith.all;
 
+
 entity ALSU_PORTC_ENTITY is 
 port(
 Y: in std_logic_vector (15 downto 0) ; 
@@ -25,14 +26,32 @@ begin
     else (Y(15) & Y(15 downto 1) )  when  S =  "110" ;  --arithnitic shift right
 	
 	
+	--carry flag
 	Flags(0) <= Y(0) when  S="011" and F8 = '1' -- rotate right with carry
 	else Y(15) when  S="101" and F8 = '1'  -- rotate left with carry
 	else Flags(0) when F8 = '0';
 	 -- otherwise
 	
+	--Zero flag
 	F <= Fbuffer;
 	Flags(2) <= '1' When F8 = '1' and Fbuffer="0000000000000000"
 	else '0' when F8='1'  -- Effect in IR-OPERATION ONLY
 	else Flags(2) when F8 = '0';
+	
+	
+
+ --Negative flag
+    Flags(1) <= Fbuffer(15) when F8 = '1' 
+           else Flags(1);
+
+    --Parity flag
+    Flags(3) <= not Fbuffer(0) when F8 = '1'
+    else Flags(3);
+
+   --Overflow flag
+	Flags(5) <= '1'  when F8 = '1' and ( Flags(1) = '0' or Flags(3) = '0') 
+	else '0' when F8 = '1'
+	else Flags(5);
+
 
 end architecture ALSU_PORTC_ARCH;

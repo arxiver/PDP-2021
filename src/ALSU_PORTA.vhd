@@ -61,7 +61,7 @@ Fbuffer <= (ADDop)   When S = "000"  -- ADDop
 	
      
 
-   
+   --carry flag
     Flags(0) <= CoutADD when  F8 = '1' and S="000" --ADD
     else CoutADC when  F8 = '1' and S = "001" --ADC 
     else CoutSUB when F8 = '1' and S = "010"    --SUB
@@ -71,8 +71,22 @@ Fbuffer <= (ADDop)   When S = "000"  -- ADDop
 
     F <= Fbuffer;
 
+    --zero flag
     Flags(2) <= '1' When F8 = '1' and Fbuffer="0000000000000000"
     else '0' when F8='1' ; -- Effect in IR-OPERATION ONLY
+	
+   --Negative flag
+    Flags(1) <= Fbuffer(15) when F8 = '1' 
+           else Flags(1);
+
+    --Parity flag
+    Flags(3) <= not Fbuffer(0) when F8 = '1'
+    else Flags(3);
+
+   --Overflow flag
+	Flags(5) <= '1'  when F8 = '1' and ( Flags(1) = '0' or Flags(3) = '0') 
+	else '0' when F8 = '1'
+	else Flags(5);
 
 
 end architecture ALSU_PORTA_ARCH;

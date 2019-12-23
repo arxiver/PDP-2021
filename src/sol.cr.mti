@@ -33,6 +33,15 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Compiling entity IR_ToBus_Decoder_Entity
 -- Compiling architecture IR_ToBus_Decoder_Arch of IR_ToBus_Decoder_Entity
 
+} {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/ALSU_PARTB.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/ALSU_PARTB.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Compiling entity ALSU_PORTB_ENTITY
+-- Compiling architecture ALSU_PORTB_ARCH of ALSU_PORTB_ENTITY
+
 } {} {}} {C:/Users/Reham/Desktop/arch project/ALSU.vhd} {2 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/ALSU.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
@@ -55,23 +64,6 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Loading package std_logic_1164
 -- Compiling entity reg
 -- Compiling architecture regarc of reg
-
-} {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PLA.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/PLA.vhd}
-Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity PLA_Entity
--- Compiling architecture PLA_Arch of PLA_Entity
-
-} {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/ALSU_PARTB.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/ALSU_PARTB.vhd}
-Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Compiling entity ALSU_PORTB_ENTITY
--- Compiling architecture ALSU_PORTB_ARCH of ALSU_PORTB_ENTITY
 
 } {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/my_adder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/my_adder.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
@@ -104,6 +96,14 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Loading package std_logic_1164
 -- Compiling entity CWDecoder
 -- Compiling architecture CWDecoderArch of CWDecoder
+
+} {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bit_oring_decoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bit_oring_decoder.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity bit_oring
+-- Compiling architecture arch_bit_oring of bit_oring
 
 } {} {}} {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bus.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Reham/Desktop/arch project/main/PDP-2021/src/bus.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
