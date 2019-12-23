@@ -184,7 +184,7 @@ signal microAR : std_logic_vector (24 downto 0);
 signal MDR_EN : std_logic ;
 
 signal ALUsel : std_logic_vector (4 downto 0);
-signal FLAGS_DATA : std_logic_vector (15 downto 0):=(others=>'0');
+signal FLAGS_DATA,ALU_FLAGS : std_logic_vector (15 downto 0):=(others=>'0');
 signal OFFSET_BRANCH : std_logic_vector (15 downto 0);
 
 signal PCfin , PCfout,F8 : std_logic ;
@@ -208,6 +208,9 @@ R4_TRI : tristate port map(R4_DATA,BUSdata,R4out);
 R5_TRI : tristate port map(R5_DATA,BUSdata,R5out);
 R6_TRI : tristate port map(R6_DATA,BUSdata,R6out);
 R7_TRI : tristate port map(R7_DATA,BUSdata,PCfout);
+IR_TRI : tristate port map(OFFSET_BRANCH,BUSdata,IRaddfield);
+
+
 
 RY_TRI : tristate port map(Y_DATA,BUSdata,'0');
 TEMP_TRI : tristate port map(TEMP_DATA,BUSdata,TEMPout);
@@ -225,6 +228,7 @@ R4 : reg port map(RCLK,RESET_R4,R4in,BUSdata,R4_DATA);
 R5 : reg port map(RCLK,RESET_R5,R5in,BUSdata,R5_DATA);
 R6 : reg port map(RCLK,RESET_R6,R6in,BUSdata,R6_DATA);
 R7 : reg port map(RCLK,RESET_R7,PCfin,BUSdata,R7_DATA);
+FL : reg port map(RCLK,'0',F8,ALU_FLAGS,FLAGS_DATA);
 
 RY : reg port map(RCLK,RESET_R7,Yin,BUSdata,Y_DATA);
 RZ : reg port map(RCLK,RESET_Z,Zin,ALU_OUTPUT,Z_DATA);
@@ -238,7 +242,7 @@ MAR : reg port map(RCLK,RESET_MAR,MARin,BUSdata,MAR_DATA);
 
 -- ALU SECTION
 ALUDECODER : PALU_Decoder_Entity port map(IR_DATA,CONTROL_WORD(6 downto 5),ALUsel);
-ALU0 : alsu port map(Y_DATA,BUSdata,ALUsel,F8,FLAGS_DATA,ALU_OUTPUT);
+ALU0 : alsu port map(Y_DATA,BUSdata,ALUsel,F8,ALU_FLAGS,ALU_OUTPUT);
 IR_FIELD_DECODE : IR_ToBus_Decoder_Entity port map(IR_DATA,FLAGS_DATA,OFFSET_BRANCH);
 
 CW_DECODE : CWDecoder port map(CONTROL_WORD,IR_DATA,PCout=>PCout,MDRout=>MDRout,Zout=>Zout,TEMPout=>TEMPout,IRaddfield=>IRaddfield,R0out=>R0out,R1out=>R1out,R2out=>R2out,R3out=>R3out,R4out=>R4out,R5out=>R5out,R6out=>R6out,R7out=>R7out,PCin=>PCin,IRin=>IRin,Zin=>Zin,R0in=>R0in,R1in=>R1in,R2in=>R2in,R3in=>R3in,R4in=>R4in,R5in=>R5in,R6in=>R6in,R7in=>R7in,MARin=>MARin,MDRin=>MDRin,Yin=>Yin,TEMPin=>TEMPin,ADDSIG=>ADDSIG,INCSIG=>INCSIG,DECSIG=>DECSIG,IROPR=>IROPR,RDen=>RDen,WRen=>WRen,ORdst=>ORdst,ORindst=>ORindst,ORinsrc=>ORinsrc,ORresult=>ORresult,PLAout=>PLAout );

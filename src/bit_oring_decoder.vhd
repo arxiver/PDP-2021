@@ -26,7 +26,7 @@ else "10110001" when oring_bits="001" and IR(4 downto 3)="11" --indexed
 else "10000001" when oring_bits="001" and IR(5 downto 3)="000" --register direct
 else "10001001" when oring_bits="001" and IR(5 downto 3)="100" --registed indeirect
 --end of this !@#123
-else address_mod(7 downto 1) & (address_mod(0) or ((IR(5) nand IR(4))  nand IR(3))) when oring_bits="100";
+else address_mod(7 downto 1) & (address_mod(0) or  not(IR(5) or IR(4)  or IR(3))) when oring_bits="100";
 
 
 end architecture;

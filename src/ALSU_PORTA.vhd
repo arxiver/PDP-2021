@@ -66,6 +66,7 @@ Fbuffer <= (ADDop)   When S = "000"  -- ADDop
     else CoutADC when  F8 = '1' and S = "001" --ADC 
     else CoutSUB when F8 = '1' and S = "010"    --SUB
     else CoutSUBC when   F8 = '1' and S = "011"  --SUBC
+    else Flags(0) when F8 = '0'
     else '0' when F8 = '1';	  
 
     F <= Fbuffer;
